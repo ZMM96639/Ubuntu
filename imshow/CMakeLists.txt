@@ -5,4 +5,4 @@ find_package(OpenCV REQUIRED)
 
 add_executable(test inshow.cpp)
 
-target_link_directories(test ${OpenCV_LIBS})
+target_link_libraries(test ${OpenCV_LIBS})
