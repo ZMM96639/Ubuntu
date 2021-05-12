@@ -13,8 +13,8 @@ int main(int argc, char **argv) {
 //    namedWindow("1picture", WINDOW_AUTOSIZE);
 //    imshow("1picture", girl);
 
-    Mat img = imread(argv[2]);
-    Mat logo = imread(argv[3]);
+    Mat img = imread("../2.jpg",1);
+    Mat logo = imread("../3.jpg",1);
 //    namedWindow("2.jpg", WINDOW_AUTOSIZE);
 //    imshow("2.jpg", img);
 //
@@ -24,6 +24,9 @@ int main(int argc, char **argv) {
     Mat imgROI;
 //first way
     cout << "hello" << endl;
+
+
+
     imgROI = img(Rect(800, 350, logo.cols, logo.rows));
     cout << "hello" << endl;
 //second way
@@ -31,7 +34,7 @@ int main(int argc, char **argv) {
     addWeighted(imgROI, 0.5, logo, 0.3, 0, imgROI);
     namedWindow("4picture");
     imshow("4picture", img);
-    waitKey();
+    waitKey(0);
 
     return 0;
 }
