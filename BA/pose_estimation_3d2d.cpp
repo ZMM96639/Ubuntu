@@ -1,14 +1,11 @@
 #include <iostream>
 #include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/calib3d/calib3d.hpp>
 #include <Eigen/Core>
-#include <g2o/core/base_vertex.h>
+//#include <g2o/core/base_vertex.h>
 #include <g2o/core/base_unary_edge.h>
-#include <g2o/core/sparse_optimizer.h>
-#include <g2o/core/block_solver.h>
-#include <g2o/core/solver.h>
-#include <g2o/core/optimization_algorithm_gauss_newton.h>
+//#include <g2o/core/sparse_optimizer.h>
+//#include <g2o/core/block_solver.h>
+//#include <g2o/core/optimization_algorithm_gauss_newton.h>
 #include <g2o/solvers/dense/linear_solver_dense.h>
 #include <sophus/se3.hpp>
 #include <chrono>
@@ -23,12 +20,12 @@ Point2d pixel2cam(const Point2d &p, const Mat &K);
 typedef vector<Eigen::Vector2d, Eigen::aligned_allocator<Eigen::Vector2d>> VecVector2d;
 typedef vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVector3d;
 
-void bundleAdjustmentG2O(
-        const VecVector3d &points_3d,
-        const VecVector2d &points_2d,
-        const Mat &K,
-        Sophus::SE3d &pose
-);
+//void bundleAdjustmentG2O(
+//        const VecVector3d &points_3d,
+//        const VecVector2d &points_2d,
+//        const Mat &K,
+//        Sophus::SE3d &pose
+//);
 
 // BA by gauss-newton
 void bundleAdjustmentGaussNewton(
@@ -46,9 +43,9 @@ int main(int argc, char **argv) {
     ifstream infile_1, infile_2;
     string s, m;
     vector<string> v1, v2;
-    infile_1.open(argv[1]);
-    double data_1[Arsize][3];
+    double data_1[Arsize][3], data_2[Arsize][2];
 
+    infile_1.open(argv[1]);
     if (!infile_1.is_open()) {
         cout << "please check out the path of file" << endl;
     }
@@ -72,21 +69,14 @@ int main(int argc, char **argv) {
             data_1[i][j] = a;
             j++;
         }
-//        cout << "\n" << v1[i] << endl;
-//        for (int r = 0; r < 3; r++) {
-//            cout << data_1[i][r] << endl;
-//        }
-
         pts_3d.push_back(Point3f(data_1[i][0], data_1[i][1], data_1[i][2]));
     }
     cout << pts_3d << endl;
     //pixel
     infile_2.open(argv[2]);
-    double data_2[Arsize][2];
     if (!infile_2.is_open()) {
         cout << "please check out the path of file" << endl;
     }
-
     while (getline(infile_2, m)) {
         v2.push_back(m);
     }
@@ -105,39 +95,33 @@ int main(int argc, char **argv) {
             data_2[k][j] = a;
             j++;
         }
-//        cout << "\n" << v2[k] << endl;
-//        for (int r = 0; r < 2; r++) {
-//            cout << data_2[k][r] << endl;
-//        }
         pts_2d.push_back(Point2f(data_2[k][0], data_2[k][1]));
     }
     cout << pts_2d << endl;
-    // 建立3D点
+// 建立3D点
     Mat K = (Mat_<double>(3, 3)
-            << 0.328819, -0.019156, 0.944199, 0.009159, 0.999812, 0.017095, -0.944349, 0.003026, 0.328932);
+            << 2857.093833, -1.069540, 1294.992282, 0, 2857.223942, 998.601615, 0, 0, 1);
     VecVector3d pts_3d_eigen;
     VecVector2d pts_2d_eigen;
     for (size_t i = 0; i < pts_3d.size(); ++i) {
-        pts_3d_eigen.push_back(Eigen::Vector3d(pts_3d[i].x, pts_3d[i].y, pts_3d[i].z));
-        pts_2d_eigen.push_back(Eigen::Vector2d(pts_2d[i].x, pts_2d[i].y));
+        pts_3d_eigen.push_back(Eigen::Vector3d(pts_3d[i].x, pts_3d[i].y, pts_3d[i].z)
+        );
+        pts_2d_eigen.push_back(Eigen::Vector2d(pts_2d[i].x, pts_2d[i].y)
+        );
     }
-
-//    cout << "calling bundle adjustment by gauss newton" << endl;
-//    Sophus::SE3d pose_gn;
-//    bundleAdjustmentGaussNewton(pts_3d_eigen, pts_2d_eigen, K, pose_gn);
+    cout << "calling bundle adjustment by gauss newton" << endl;
+    Sophus::SE3d pose_gn;
+    bundleAdjustmentGaussNewton(pts_3d_eigen, pts_2d_eigen, K, pose_gn);
 //    cout << "calling bundle adjustment by g2o" << endl;
 //    Sophus::SE3d pose_g2o;
 //    bundleAdjustmentG2O(pts_3d_eigen, pts_2d_eigen, K, pose_g2o);
     return 0;
 }
 
-Point2d pixel2cam(const Point2d &p, const Mat &K) {
-    return Point2d
-            (
-                    (p.x - K.at<double>(0, 2)) / K.at<double>(0, 0),
-                    (p.y - K.at<double>(1, 2)) / K.at<double>(1, 1)
-            );
-}
+//Point2d pixel2cam(const Point2d &p, const Mat &K) {
+//    return Point2d((p.x - K.at<double>(0, 2)) / K.at<double>(0, 0),
+//                   (p.y - K.at<double>(1, 2)) / K.at<double>(1, 1));
+//}
 
 void bundleAdjustmentGaussNewton(
         const VecVector3d &points_3d,
@@ -151,21 +135,17 @@ void bundleAdjustmentGaussNewton(
     double fy = K.at<double>(1, 1);
     double cx = K.at<double>(0, 2);
     double cy = K.at<double>(1, 2);
-
     for (int iter = 0; iter < iterations; iter++) {
         Eigen::Matrix<double, 6, 6> H = Eigen::Matrix<double, 6, 6>::Zero();
         Vector6d b = Vector6d::Zero();
-
         cost = 0;
         // compute cost
         for (int i = 0; i < points_3d.size(); i++) {
-            Eigen::Vector3d pc = pose * points_3d[i];
+            Eigen::Vector3d pc = pose * points_3d[i];//coordinate:world to camera
             double inv_z = 1.0 / pc[2];
             double inv_z2 = inv_z * inv_z;
             Eigen::Vector2d proj(fx * pc[0] / pc[2] + cx, fy * pc[1] / pc[2] + cy);
-
             Eigen::Vector2d e = points_2d[i] - proj;
-
             cost += e.squaredNorm();
             Eigen::Matrix<double, 2, 6> J;
             J << -fx * inv_z,
@@ -180,25 +160,20 @@ void bundleAdjustmentGaussNewton(
                     fy + fy * pc[1] * pc[1] * inv_z2,
                     -fy * pc[0] * pc[1] * inv_z2,
                     -fy * pc[0] * inv_z;
-
             H += J.transpose() * J;
             b += -J.transpose() * e;
         }
-
         Vector6d dx;
         dx = H.ldlt().solve(b);
-
         if (isnan(dx[0])) {
             cout << "result is nan!" << endl;
             break;
         }
-
         if (iter > 0 && cost >= lastCost) {
             // cost increase, update is not good
             cout << "cost: " << cost << ", last cost: " << lastCost << endl;
             break;
         }
-
         // update your estimation
         pose = Sophus::SE3d::exp(dx) * pose;
         lastCost = cost;
@@ -209,11 +184,10 @@ void bundleAdjustmentGaussNewton(
             break;
         }
     }
-
     cout << "pose by g-n: \n" << pose.matrix() << endl;
 }
-
-/// vertex and edges used in g2o ba
+//
+///// vertex and edges used in g2o ba
 //class VertexPose : public g2o::BaseVertex<6, Sophus::SE3d> {
 //public:
 //    EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
@@ -279,7 +253,6 @@ void bundleAdjustmentGaussNewton(
 //        const VecVector2d &points_2d,
 //        const Mat &K,
 //        Sophus::SE3d &pose) {
-//
 //    // 构建图优化，先设定g2o
 //    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> BlockSolverType;  // pose is 6, landmark is 3
 //    typedef g2o::LinearSolverDense<BlockSolverType::PoseMatrixType> LinearSolverType; // 线性求解器类型
@@ -289,22 +262,19 @@ void bundleAdjustmentGaussNewton(
 //    g2o::SparseOptimizer optimizer;     // 图模型
 //    optimizer.setAlgorithm(solver);   // 设置求解器
 //    optimizer.setVerbose(true);       // 打开调试输出
-//
 //    // vertex
 //    VertexPose *vertex_pose = new VertexPose(); // camera vertex_pose
 //    vertex_pose->setId(0);
 //    vertex_pose->setEstimate(Sophus::SE3d());
 //    optimizer.addVertex(vertex_pose);
-//
 //    // K
 //    Eigen::Matrix3d K_eigen;
 //    K_eigen <<
 //            K.at<double>(0, 0), K.at<double>(0, 1), K.at<double>(0, 2),
 //            K.at<double>(1, 0), K.at<double>(1, 1), K.at<double>(1, 2),
 //            K.at<double>(2, 0), K.at<double>(2, 1), K.at<double>(2, 2);
-//
 //    // edges
-//    int index = 1;
+//    int index = 8;
 //    for (size_t i = 0; i < points_2d.size(); ++i) {
 //        auto p2d = points_2d[i];
 //        auto p3d = points_3d[i];
@@ -316,14 +286,13 @@ void bundleAdjustmentGaussNewton(
 //        optimizer.addEdge(edge);
 //        index++;
 //    }
-//
-////  chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
+//    chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
 //    optimizer.setVerbose(true);
 //    optimizer.initializeOptimization();
 //    optimizer.optimize(10);
-////  chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
-////  chrono::duration<double> time_used = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
-////  cout << "optimization costs time: " << time_used.count() << " seconds." << endl;
+//    chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
+//    chrono::duration<double> time_used = chrono::duration_cast<chrono::duration<double>>(t2 - t1);
+//    cout << "optimization costs time: " << time_used.count() << " seconds." << endl;
 //    cout << "pose estimated by g2o =\n" << vertex_pose->estimate().matrix() << endl;
 //    pose = vertex_pose->estimate();
 //}
