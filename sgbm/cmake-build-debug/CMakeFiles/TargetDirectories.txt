@@ -1,0 +1,3 @@
+/home/zmm/CLionProjects/sgbm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/zmm/CLionProjects/sgbm/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/zmm/CLionProjects/sgbm/cmake-build-debug/CMakeFiles/sgbm.dir
