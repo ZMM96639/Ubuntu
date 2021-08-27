@@ -1,0 +1,3 @@
+/home/calmm/CLionProjects/Binocular/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/calmm/CLionProjects/Binocular/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/calmm/CLionProjects/Binocular/cmake-build-debug/CMakeFiles/camera.dir

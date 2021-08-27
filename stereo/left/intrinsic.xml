@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<intrinsic_matrix>
+  3.2686099702554066e+02 0. 6.3470432320051611e+02 0.
+  3.2547238025065536e+02 3.6356740662493496e+02 0. 0. 1.</intrinsic_matrix>
+<distortion_coeffs>
+  7.4338510524433035e-02 -3.1460866361061567e-02 2.9333195424307262e-02
+  -2.8386034907638838e-03</distortion_coeffs>
+</opencv_storage>
