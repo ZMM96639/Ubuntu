@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblib.a CMakeFiles/lib.dir/SemiGlobalMatching.cpp.o CMakeFiles/lib.dir/sgm_util.cpp.o CMakeFiles/lib.dir/stdafx.cpp.o
-/usr/bin/ranlib liblib.a

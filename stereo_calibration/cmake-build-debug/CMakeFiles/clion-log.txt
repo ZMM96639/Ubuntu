@@ -1,4 +1,0 @@
-/home/calmm/software/clion-2021.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/calmm/Documents/stereo_calibration
--- Configuring done
--- Generating done
--- Build files have been written to: /home/calmm/Documents/stereo_calibration/cmake-build-debug
