@@ -1,43 +1,42 @@
 cmake_minimum_required(VERSION 2.8)
-project(vo1)
+project(bundleAdjustment)
 
 set(CMAKE_BUILD_TYPE "Debug")
-add_definitions("-DENABLE_SSE")
-set(CMAKE_CXX_STANDARD)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mpopcnt")
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-find_package(OpenCV 4 REQUIRED)
-find_package(G2O REQUIRED)
+set(CMAKE_CXX_STANDARD 14)
+
+find_package(OpenCV 4.5.0 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_directories(${OpenCV_LIBRARY_DIRS})
+
 find_package(Sophus REQUIRED)
+include_directories(${SOPHUS_INCLUDE_DIRS})
+link_directories(${SOPHUS_LIBRARY_DIRS})
 
-include_directories(
-        ${OpenCV_INCLUDE_DIRS}
-        ${G2O_INCLUDE_DIRS}
-        ${Sophus_INCLUDE_DIRS}
-        "/usr/include/eigen3/"
-)
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
+link_directories(${EIGEN3_LIBRARY_DIRS})
 
-#add_executable(orb_cv orb_cv.cpp)
-#target_link_libraries(orb_cv ${OpenCV_LIBS})
-#
-#add_executable(orb_self orb_self.cpp)
-#target_link_libraries(orb_self ${OpenCV_LIBS})
+find_package(Fmt REQUIRED)
+include_directories(${FMT_INCLUDE_DIRS})
+link_directories(${FMT_LIBRARY_DIRS})
 
-# add_executable( pose_estimation_2d2d pose_estimation_2d2d.cpp extra.cpp ) # use this if in OpenCV2 
-#add_executable(pose_estimation_2d2d pose_estimation_2d2d.cpp)
-#target_link_libraries(pose_estimation_2d2d ${OpenCV_LIBS})
 
-# # add_executable( triangulation triangulation.cpp extra.cpp) # use this if in opencv2
-#add_executable(triangulation triangulation.cpp)
-#target_link_libraries(triangulation ${OpenCV_LIBS})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-add_executable(pose_estimation_3d2d pose_estimation_3d2d.cpp)
-target_link_libraries(pose_estimation_3d2d
-        g2o_core g2o_stuff
-        ${OpenCV_LIBS})
+include_directories(include Thirdparty/g2o)
 
-#add_executable(pose_estimation_3d3d pose_estimation_3d3d.cpp)
-#target_link_libraries(pose_estimation_3d3d
-#        g2o_core g2o_stuff
-#        ${OpenCV_LIBS})
+aux_source_directory(src SRC)
+
+add_library(${PROJECT_NAME} ${SRC})
+target_link_libraries(${PROJECT_NAME}
+                      ${OpenCV_LIBS}
+                      ${SOPHUS_LIBRARIES}
+                      ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+                      fmt)
+
+
+add_executable(pose_estimation_3d2d Examples/pose_estimation_3d2d.cpp)
+target_link_libraries(pose_estimation_3d2d ${PROJECT_NAME})

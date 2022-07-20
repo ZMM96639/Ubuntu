@@ -1,0 +1,4 @@
+/home/zmm/VScodeProjects/study/BA/build/CMakeFiles/edit_cache.dir
+/home/zmm/VScodeProjects/study/BA/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/VScodeProjects/study/BA/build/CMakeFiles/pose_estimation_3d2d.dir
+/home/zmm/VScodeProjects/study/BA/build/CMakeFiles/bundleAdjustment.dir
