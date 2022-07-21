@@ -1,0 +1,26 @@
+# ninja log v5
+1	791	1658369178187140233	CMakeFiles/bundleAdjustment.dir/src/Loadfile.cpp.o	78d8abcc9a98ca6d
+0	1634	1658369179027135653	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1	3363	1658369180755126364	CMakeFiles/bundleAdjustment.dir/src/EdgeProjection.cpp.o	d589965f1d5f884c
+1	7678	1658369185063103900	CMakeFiles/bundleAdjustment.dir/src/VertexPose.cpp.o	8dfe98d0348f9e6c
+1	15738	1658369193111064597	CMakeFiles/bundleAdjustment.dir/src/BundleAdjustment.cpp.o	f48aafe37839f004
+15739	16132	1658369193463062960	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+16132	17245	1658369194635057540	../bin/pose_estimation_3d2d	ab38052da7a57834
+3	1460	1658369389218934945	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1460	2451	1658369390206937375	../bin/pose_estimation_3d2d	ab38052da7a57834
+2	1466	1658369670987068905	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+2	700	1658369685560236728	CMakeFiles/bundleAdjustment.dir/src/Loadfile.cpp.o	78d8abcc9a98ca6d
+700	1071	1658369685876261783	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+1071	2142	1658369686996350468	../bin/pose_estimation_3d2d	ab38052da7a57834
+2	725	1658370438486424295	CMakeFiles/bundleAdjustment.dir/src/Loadfile.cpp.o	78d8abcc9a98ca6d
+725	1081	1658370438790434358	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+2	1496	1658370439258449843	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1496	2504	1658370440258482911	../bin/pose_estimation_3d2d	ab38052da7a57834
+3	727	1658370501100446308	CMakeFiles/bundleAdjustment.dir/src/Loadfile.cpp.o	78d8abcc9a98ca6d
+727	1092	1658370501420456391	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+3	1461	1658370501832469372	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1461	2475	1658370502840501113	../bin/pose_estimation_3d2d	ab38052da7a57834
+3	1398	1658370529645336448	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1398	2399	1658370530641367171	../bin/pose_estimation_3d2d	ab38052da7a57834
+3	1418	1658371157937656560	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	bbd6e37a9e8a9a72
+1418	2422	1658371158933679185	../bin/pose_estimation_3d2d	ab38052da7a57834

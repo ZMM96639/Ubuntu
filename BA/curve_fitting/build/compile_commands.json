@@ -1,0 +1,25 @@
+[
+{
+  "directory": "/home/zmm/VScodeProjects/study/BA/curve_fitting/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/curve.dir/Examples/curvefitting.cpp.o -c /home/zmm/VScodeProjects/study/BA/curve_fitting/Examples/curvefitting.cpp",
+  "file": "/home/zmm/VScodeProjects/study/BA/curve_fitting/Examples/curvefitting.cpp"
+},
+
+{
+  "directory": "/home/zmm/VScodeProjects/study/BA/curve_fitting/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/curveFitting.dir/src/BundleAdjustment.cpp.o -c /home/zmm/VScodeProjects/study/BA/curve_fitting/src/BundleAdjustment.cpp",
+  "file": "/home/zmm/VScodeProjects/study/BA/curve_fitting/src/BundleAdjustment.cpp"
+},
+
+{
+  "directory": "/home/zmm/VScodeProjects/study/BA/curve_fitting/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/curveFitting.dir/src/CurveFittingVertex.cpp.o -c /home/zmm/VScodeProjects/study/BA/curve_fitting/src/CurveFittingVertex.cpp",
+  "file": "/home/zmm/VScodeProjects/study/BA/curve_fitting/src/CurveFittingVertex.cpp"
+},
+
+{
+  "directory": "/home/zmm/VScodeProjects/study/BA/curve_fitting/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/curveFitting.dir/src/CurverFittingEdge.cpp.o -c /home/zmm/VScodeProjects/study/BA/curve_fitting/src/CurverFittingEdge.cpp",
+  "file": "/home/zmm/VScodeProjects/study/BA/curve_fitting/src/CurverFittingEdge.cpp"
+}
+]
