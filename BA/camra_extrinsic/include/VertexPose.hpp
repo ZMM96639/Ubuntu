@@ -6,6 +6,8 @@
 #include <sophus/se3.hpp>
 #include <g2o/core/base_vertex.h>
 
+//对于用g2o来进行优化的话，首先要定义顶点和边的模板
+//顶点，也就是咱们要优化的pose 用李代数表示它 6维
 class VertexPose : public g2o::BaseVertex<6, Sophus::SE3d>
 {
 public:

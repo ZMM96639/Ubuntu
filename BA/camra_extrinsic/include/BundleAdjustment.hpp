@@ -16,7 +16,8 @@ namespace BundleAdjustment
         const VecVector3d &points_3d,
         const VecVector2d &points_2d,
         const cv::Mat &K,
-        Sophus::SE3d &pose);
+        Sophus::SE3d &pose,
+        const int &iterations = 10);
 
     void bundleAdjustmentG2O(
         const VecVector3d &points_3d,

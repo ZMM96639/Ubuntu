@@ -22,6 +22,14 @@ namespace BundleAdjustment
         const std::vector<double> &y_data,
         int n, double sigma)
     {
+        // 第一种解决方式: 将普通指针强制转换成智能指针 需要注意的是 转化之后 原来的普通指针指向的内容会有变化.
+        // 普通指针可以强制转换成智能指针，方式是通过智能指针的一个构造函数来实现的.
+        // Block(std::unique_ptr<Block::LinearSolverType>(linearSolver));
+
+        // 这里面就是将linearSolver普通指针作为参数用智能指针构造一个临时的对象，此时原来的普通指针就无效了，一定不要再次用那个指针了，否则会有意想不到的错误，如果还想保留原来的指针.
+        // 第二种方式 定义的时候就直接用智能指针就好，但是就如第二种解决方案那样，也会遇到类型转换的问题.
+        // g2o::make_unique<BlockSolverType>(g2o::make_unique<LinearSolverType>());
+
         // 构建图优化，先设定g2o
         typedef g2o::BlockSolver<g2o::BlockSolverTraits<3, 1>> Block;                                // 每个误差项优化变量维度为3，误差值维度为1
         Block::LinearSolverType *linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>(); // 线性方程求解器
@@ -45,8 +53,8 @@ namespace BundleAdjustment
         {
             CurveFitting::CurveFittingEdge *edge = new CurveFitting::CurveFittingEdge(x_data[i]);
             edge->setId(i);
-            edge->setVertex(0, v);                                                                   // 设置连接的顶点
-            edge->setMeasurement(y_data[i]);                                                         // 观测数值
+            edge->setVertex(0, v);                                                               // 设置连接的顶点
+            edge->setMeasurement(y_data[i]);                                                     // 观测数值
             edge->setInformation(Eigen::Matrix<double, 1, 1>::Identity() * 1 / (sigma * sigma)); // 信息矩阵：协方差矩阵之逆
             optimizer.addEdge(edge);
         }

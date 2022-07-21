@@ -1,17 +1,15 @@
 
 
-/// vertex and edges used in g2o ba
-
 #include "EdgeProjection.hpp"
 
 EdgeProjection::EdgeProjection(const Eigen::Vector3d &pos, const Eigen::Matrix3d &K) : _pos3d(pos), _K(K) {}
 
 void EdgeProjection::computeError()
 {
-    const VertexPose *v = static_cast<VertexPose *>(_vertices[0]);
+    const VertexPose *v = static_cast<const VertexPose *>(_vertices[0]);
     Sophus::SE3d T = v->estimate();
-    Eigen::Vector3d pos_pixel = _K * (T * _pos3d);
-    pos_pixel /= pos_pixel[2];
+    Eigen::Vector3d pos_pixel = _K * (T * _pos3d); // T: 世界坐标系至相机坐标间的变换; _pos3d: 世界坐标系下的3d点
+    pos_pixel /= pos_pixel[2];                     // 齐次坐标转换为非齐次坐标
     _error = _measurement - pos_pixel.head<2>();
 }
 
@@ -28,6 +26,8 @@ void EdgeProjection::linearizeOplus()
     double Y = pos_cam[1];
     double Z = pos_cam[2];
     double Z2 = Z * Z;
+
+    // 雅克比矩阵见书p187 公式7.46
     _jacobianOplusXi
         << -fx / Z,
         0, fx * X / Z2, fx * X * Y / Z2, -fx - fx * X * X / Z2, fx * Y / Z,
