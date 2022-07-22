@@ -128,7 +128,7 @@ namespace BundleAdjustment
             K.at<double>(2, 0), K.at<double>(2, 1), K.at<double>(2, 2);
 
         // edges
-        int index = 8;
+        int index = 1;
         for (size_t i = 0; i < points_2d.size(); ++i)
         {
             auto p2d = points_2d[i];

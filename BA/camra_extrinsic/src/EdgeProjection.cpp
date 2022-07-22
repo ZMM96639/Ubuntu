@@ -8,7 +8,7 @@ void EdgeProjection::computeError()
 {
     const VertexPose *v = static_cast<const VertexPose *>(_vertices[0]);
     Sophus::SE3d T = v->estimate();
-    Eigen::Vector3d pos_pixel = _K * (T * _pos3d); // T: 世界坐标系至相机坐标间的变换; _pos3d: 世界坐标系下的3d点
+    Eigen::Vector3d pos_pixel = _K * (T * _pos3d); // T: 优化变量(世界坐标系至相机坐标间的变换); _pos3d: 世界坐标系下的3d点
     pos_pixel /= pos_pixel[2];                     // 齐次坐标转换为非齐次坐标
     _error = _measurement - pos_pixel.head<2>();
 }

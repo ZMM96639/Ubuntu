@@ -22,7 +22,7 @@ namespace CurveFitting
 
     public:
         // 计算曲线模型误差
-        void computeError();
+        void computeError() override;
 
         virtual bool read(std::istream &in) override;
         virtual bool write(std::ostream &out) const override;

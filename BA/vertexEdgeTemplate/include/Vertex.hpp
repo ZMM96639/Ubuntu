@@ -37,8 +37,8 @@ public:
     virtual void oplusImpl(const double *update) override; // 顶点的更新函数: 主要用于优化过程中增量 △x 的计算.
 
     // 存盘和读盘：留空
-    virtual bool read(std::istream &is) override;
-    virtual bool write(std::ostream &os) const override;
+    virtual bool read(std::istream &in) override;
+    virtual bool write(std::ostream &out) const override;
 
 private:
     myVertex &operator=(const myVertex &) = delete;

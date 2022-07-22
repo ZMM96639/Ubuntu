@@ -11,12 +11,12 @@ void myVertex::oplusImpl(const double *update)
     _estimate += /* update */;
 }
 
-bool myVertex::read(std::istream &is)
+bool myVertex::read(std::istream &in)
 {
     return true;
 }
 
-bool myVertex::write(std::ostream &os) const
+bool myVertex::write(std::ostream &out) const
 {
     return true; 
 }
