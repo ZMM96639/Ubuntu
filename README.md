@@ -1,5 +1,5 @@
 # Ubuntu
-1. BA using tutorial
+1. BA using tutorial: 
     camera extrinsic optimization using g2o;
     examples of curve fitting using g2o;
     g2o using template including own vertex, edge and bundleAdjustment class.
