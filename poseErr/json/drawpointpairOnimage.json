@@ -1,0 +1,31 @@
+[ 
+    {
+        "type":"readers.text",
+        "filename":"/home/zmm/practice/poseErr/json/data/wp/7.txt",
+        "header":"X  Y  Z"
+
+    },
+  
+    {      
+        "type":"filters.drawpointpaironimage",
+
+        "ppoint_file":"/home/zmm/practice/poseErr/json/data/pp/7.txt",
+        "ppoint_outfile":"/home/zmm/practice/poseErr/json/out7.txt",
+
+        "image_file":"/home/zmm/practice/poseErr/json/data/pic/7.png",
+        "image_outfile":"/home/zmm/practice/poseErr/json/out7.png",
+      
+        "camera_intrinsic":["1463.712","0","633.992",
+                             "0.000000","1465.228","422.927",
+                             "0","0","1"],
+                             
+        "lidarTocamera_rotation":["0.382195", "-0.924079", "0.00233441",
+                            "0.198545", "0.0796499", "-0.97685",
+                            "0.9025", "0.373811", "0.213913"],
+
+        "lidarTocamera_translation":["-0.647469", "0.0791495", "0.240753"],
+      
+        "image_width":"1280",
+        "image_height":"960"
+    }
+]
