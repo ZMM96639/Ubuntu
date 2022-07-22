@@ -12,7 +12,7 @@ public:
     ~myEdge() = default;
 
     virtual void computeError() override;
-    virtual void linearizeOplus() override;
+    virtual void linearizeOplus() override; // 计算雅克比矩阵，这个函数是可选的，如果给出了则进行解析求导，不给则进行数值求导
 
     // 存盘和读盘：留空
     virtual bool read(std::istream &in) override;
