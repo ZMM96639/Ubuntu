@@ -53,3 +53,13 @@
 2	14936	1658397038173569358	CMakeFiles/bundleAdjustment.dir/src/BundleAdjustment.cpp.o	f48aafe37839f004
 14936	15309	1658397038517576332	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
 15309	16353	1658397039609598459	../bin/pose_estimation_3d2d	ab38052da7a57834
+2	3068	1658458373049621875	CMakeFiles/bundleAdjustment.dir/src/EdgeProjection.cpp.o	d589965f1d5f884c
+3	7429	1658458377401743317	CMakeFiles/bundleAdjustment.dir/src/VertexPose.cpp.o	8dfe98d0348f9e6c
+2	15554	1658458385517969526	CMakeFiles/bundleAdjustment.dir/src/BundleAdjustment.cpp.o	f48aafe37839f004
+15554	15949	1658458385861979106	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+15949	17121	1658458387098013523	../bin/pose_estimation_3d2d	ab38052da7a57834
+3	3321	1658458835374094874	CMakeFiles/bundleAdjustment.dir/src/EdgeProjection.cpp.o	d589965f1d5f884c
+4	7503	1658458839546204517	CMakeFiles/bundleAdjustment.dir/src/VertexPose.cpp.o	8dfe98d0348f9e6c
+3	15503	1658458847534414342	CMakeFiles/bundleAdjustment.dir/src/BundleAdjustment.cpp.o	f48aafe37839f004
+15503	15882	1658458847882423480	../lib/libbundleAdjustment.a	68d09b6f0a553ed2
+15882	16919	1658458848966451943	../bin/pose_estimation_3d2d	ab38052da7a57834

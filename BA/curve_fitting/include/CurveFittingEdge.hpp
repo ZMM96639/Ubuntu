@@ -9,7 +9,7 @@
 
 namespace CurveFitting
 {
-    // 误差模型 模板参数：观测值维度，类型，连接顶点类型
+    // 误差模型 模板参数：D 观测值维度，类型 连接顶点类型
     class CurveFittingEdge : public g2o::BaseUnaryEdge<1, double, CurveFittingVertex>
     {
     public:
