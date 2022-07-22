@@ -31,6 +31,9 @@ namespace BundleAdjustment
         // g2o::make_unique<BlockSolverType>(g2o::make_unique<LinearSolverType>());
 
         // 构建图优化，先设定g2o
+        // BlockSolverTraits<PoseDim, LandmarkDim>
+        // PoseDim: 待优化变量; LandmarkDim: 误差维数
+
         typedef g2o::BlockSolver<g2o::BlockSolverTraits<3, 1>> Block;                                // 每个误差项优化变量维度为3，误差值维度为1
         Block::LinearSolverType *linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>(); // 线性方程求解器
         Block *solver_ptr = new Block(linearSolver);                                                 // 矩阵块求解器
@@ -64,7 +67,7 @@ namespace BundleAdjustment
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
         optimizer.initializeOptimization();
-        optimizer.optimize(100);
+        optimizer.optimize(1);
 
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
         std::chrono::duration<double> time_used = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);

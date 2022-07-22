@@ -14,12 +14,10 @@ public:
     EdgeProjection(const Eigen::Vector3d &pos, const Eigen::Matrix3d &K); // 初始化 图1中的3d点 以及相机内参K
 
     virtual void computeError() override;
-
     virtual void linearizeOplus() override;
 
     // 存盘和读盘：留空
     virtual bool read(std::istream &in) override;
-
     virtual bool write(std::ostream &out) const override;
 
 private:

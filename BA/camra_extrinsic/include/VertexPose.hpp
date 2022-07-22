@@ -39,11 +39,9 @@ public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW; // 表示在利用Eigen库的数据结构时new的时候 需要对齐，所以加入EIGEN特有的宏定义即可实现.
 
     virtual void setToOriginImpl() override; // 输入优化变量初始值
-
     virtual void oplusImpl(const double *update) override; // 顶点的更新函数: 主要用于优化过程中增量△x 的计算.
 
     // 存盘和读盘：留空
     virtual bool read(std::istream &in) override;
-
     virtual bool write(std::ostream &out) const override;
 };

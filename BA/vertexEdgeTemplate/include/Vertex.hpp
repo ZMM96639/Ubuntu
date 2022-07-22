@@ -3,7 +3,6 @@
 #pragma once
 
 // 对于用g2o来进行优化的话，首先要定义顶点和边的模板
-// 顶点，也就是咱们要优化的pose 用李代数表示它 6维
 // g2o::BaseVertex<D, T>
 // D: 描述顶点的状态量(可以理解为优化变量); T: 顶点类型
 
@@ -29,7 +28,7 @@
 class myVertex : public g2o::BaseVertex<Dim, Type>
 {
 public:
-    EIGEN_MAKE_ALIGNED_OPERATOR_NEW; // 表示在利用Eigen库的数据结构时new的时候 需要对齐，所以加入EIGEN特有的宏定义即可实现
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW; // 表示在利用Eigen库的数据结构时new的时候需要对齐，所以加入EIGEN特有的宏定义即可实现.
 
     myVertex() = default;
     ~myVertex() = default;

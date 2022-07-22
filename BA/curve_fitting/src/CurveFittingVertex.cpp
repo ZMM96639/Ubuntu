@@ -4,7 +4,6 @@
 
 namespace CurveFitting
 {
-
     void CurveFittingVertex::setToOriginImpl()
     {
         _estimate << 0, 0, 0;
@@ -24,5 +23,4 @@ namespace CurveFitting
     {
         return true;
     }
-
 }
