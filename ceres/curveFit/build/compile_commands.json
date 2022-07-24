@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/home/zmm/VScodeProjects/study/ceres/curveFit/build",
+  "command": "/usr/bin/c++  -DCERES_EXPORT_INTERNAL_SYMBOLS -DGFLAGS_IS_A_DLL=0 -I../include -isystem /usr/local/include/opencv4 -isystem /usr/include/eigen3  -g   -o CMakeFiles/curve.dir/Examples/curve.cpp.o -c /home/zmm/VScodeProjects/study/ceres/curveFit/Examples/curve.cpp",
+  "file": "/home/zmm/VScodeProjects/study/ceres/curveFit/Examples/curve.cpp"
+},
+
+{
+  "directory": "/home/zmm/VScodeProjects/study/ceres/curveFit/build",
+  "command": "/usr/bin/c++  -DCERES_EXPORT_INTERNAL_SYMBOLS -DGFLAGS_IS_A_DLL=0 -I../include -isystem /usr/local/include/opencv4 -isystem /usr/include/eigen3  -g   -o CMakeFiles/curvefitting.dir/src/Costfunc.cpp.o -c /home/zmm/VScodeProjects/study/ceres/curveFit/src/Costfunc.cpp",
+  "file": "/home/zmm/VScodeProjects/study/ceres/curveFit/src/Costfunc.cpp"
+}
+]

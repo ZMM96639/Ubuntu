@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG  -rdynamic CMakeFiles/main2.dir/Examples/main2.cpp.o  -o main2  /usr/local/lib/libceres.a -lglog /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2 -lpthread -lspqr -ltbb -lcholmod -lccolamd -lcamd -lcolamd -lamd -llapack -lf77blas -latlas -lsuitesparseconfig -lrt -lcxsparse -llapack -lf77blas -latlas -lsuitesparseconfig -lrt -lcxsparse 

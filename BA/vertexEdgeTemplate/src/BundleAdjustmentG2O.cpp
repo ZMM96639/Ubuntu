@@ -32,7 +32,7 @@ namespace BundleAdjustment
 
         // 往图中增加顶点
         myVertex *v = new myVertex();
-        v->setEstimate();
+        v->setEstimate(/* data */);
         v->setId(0);
         optimizer.addVertex(v);
 

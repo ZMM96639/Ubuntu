@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Costfun.hpp
+vector
+-
+ceres/ceres.h
+../include/ceres/ceres.h
+
+../include/data.h
+
+/home/zmm/VScodeProjects/study/ceres/test1/Examples/main3.cpp
+Costfun.hpp
+/home/zmm/VScodeProjects/study/ceres/test1/Examples/Costfun.hpp
+data.h
+/home/zmm/VScodeProjects/study/ceres/test1/Examples/data.h
+ceres/ceres.h
+/home/zmm/VScodeProjects/study/ceres/test1/Examples/ceres/ceres.h
+glog/logging.h
+/home/zmm/VScodeProjects/study/ceres/test1/Examples/glog/logging.h
+
