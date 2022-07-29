@@ -28,10 +28,8 @@ void EdgeProjection::linearizeOplus()
     double Z2 = Z * Z;
 
     // 雅克比矩阵见书p187 公式7.46
-    _jacobianOplusXi
-        << -fx / Z,
-        0, fx * X / Z2, fx * X * Y / Z2, -fx - fx * X * X / Z2, fx * Y / Z,
-        0, -fy / Z, fy * Y / (Z * Z), fy + fy * Y * Y / Z2, -fy * X * Y / Z2, -fy * X / Z;
+    _jacobianOplusXi << -fx / Z, 0, fx * X / Z2, fx * X * Y / Z2, -fx - fx * X * X / Z2, fx * Y / Z,
+        0, -fy / Z, fy * Y / Z2, fy + fy * Y * Y / Z2, -fy * X * Y / Z2, -fy * X / Z;
 }
 
 bool EdgeProjection::read(std::istream &in)
