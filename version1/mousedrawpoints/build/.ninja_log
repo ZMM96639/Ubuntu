@@ -1,0 +1,7 @@
+# ninja log v5
+0	679	1659262055119262628	CMakeFiles/CapPixel.dir/src/Mouse.cpp.o	adabfb80601d96aa
+680	697	1659262055139258424	libCapPixel.a	d2b822fc02aa9f8b
+0	717	1659262055155255062	CMakeFiles/test.dir/Examples/test.cpp.o	526e7a206067af91
+717	1013	1659262055451192850	test	2fe2e8fa23a2647d
+1	672	1659262164227086318	CMakeFiles/CapPixel.dir/src/Mouse.cpp.o	adabfb80601d96aa
+672	690	1659262164247083007	libCapPixel.a	d2b822fc02aa9f8b

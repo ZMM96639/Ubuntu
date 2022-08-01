@@ -1,0 +1,13 @@
+[
+{
+  "directory": "/home/zmm/practice/version1/mousedrawpoints/build",
+  "command": "/usr/bin/c++   -I../include -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/test.dir/Examples/test.cpp.o -c /home/zmm/practice/version1/mousedrawpoints/Examples/test.cpp",
+  "file": "/home/zmm/practice/version1/mousedrawpoints/Examples/test.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/mousedrawpoints/build",
+  "command": "/usr/bin/c++   -I../include -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/CapPixel.dir/src/Mouse.cpp.o -c /home/zmm/practice/version1/mousedrawpoints/src/Mouse.cpp",
+  "file": "/home/zmm/practice/version1/mousedrawpoints/src/Mouse.cpp"
+}
+]

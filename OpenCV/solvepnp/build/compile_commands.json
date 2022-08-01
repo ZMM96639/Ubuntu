@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/zmm/gitRepositories/OpenCV/solvepnp/build",
-  "command": "/usr/bin/c++   -I/usr/include/eigen3 -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/pose_estimation_3d2d.dir/pose_estimation_3d2d.cpp.o -c /home/zmm/gitRepositories/OpenCV/solvepnp/pose_estimation_3d2d.cpp",
-  "file": "/home/zmm/gitRepositories/OpenCV/solvepnp/pose_estimation_3d2d.cpp"
-}
-]

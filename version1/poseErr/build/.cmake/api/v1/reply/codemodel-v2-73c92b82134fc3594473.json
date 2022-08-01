@@ -1,0 +1,104 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "poseErr",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_drawpointpaironimage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_drawpointpaironimage-Debug-d01d1550dfa16c6cc75b.json",
+					"name" : "pdal_plugin_filter_drawpointpaironimage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_eulerConvert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_eulerConvert-Debug-3a7aff6c58f74ae90155.json",
+					"name" : "pdal_plugin_filter_eulerConvert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pcdprojecttoimages::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pcdprojecttoimages-Debug-235aa52bcd30d1c8aa90.json",
+					"name" : "pdal_plugin_filter_pcdprojecttoimages",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pose1topose2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pose1topose2-Debug-ff9907e4da790360e329.json",
+					"name" : "pdal_plugin_filter_pose1topose2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pose6Dtransformation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pose6Dtransformation-Debug-d277c04b1ff90edcd553.json",
+					"name" : "pdal_plugin_filter_pose6Dtransformation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-a38bc5260a2e393ec80b.json",
+					"name" : "test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/zmm/practice/version1/poseErr/build",
+		"source" : "/home/zmm/practice/version1/poseErr"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

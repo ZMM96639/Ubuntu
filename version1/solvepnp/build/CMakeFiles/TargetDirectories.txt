@@ -1,0 +1,4 @@
+/home/zmm/practice/version1/solvepnp/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/practice/version1/solvepnp/build/CMakeFiles/edit_cache.dir
+/home/zmm/practice/version1/solvepnp/build/CMakeFiles/pose_estimation.dir
+/home/zmm/practice/version1/solvepnp/build/CMakeFiles/solvePnP.dir

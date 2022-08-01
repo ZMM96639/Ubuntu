@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/pose_estimation.dir/Examples/pose_estimation.cpp.o -c /home/zmm/practice/version1/solvepnp/Examples/pose_estimation.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/Examples/pose_estimation.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/solvePnP.dir/src/BundleAdjustment.cpp.o -c /home/zmm/practice/version1/solvepnp/src/BundleAdjustment.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/src/BundleAdjustment.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/solvePnP.dir/src/Loadfile.cpp.o -c /home/zmm/practice/version1/solvepnp/src/Loadfile.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/src/Loadfile.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/solvePnP.dir/src/PoseEdge.cpp.o -c /home/zmm/practice/version1/solvepnp/src/PoseEdge.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/src/PoseEdge.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/solvePnP.dir/src/PoseVertex.cpp.o -c /home/zmm/practice/version1/solvepnp/src/PoseVertex.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/src/PoseVertex.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version1/solvepnp/build",
+  "command": "/usr/bin/c++   -I/usr/include/eigen3 -I../include -I../Thirdparty/g2o -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/solvePnP.dir/src/fileLoad.cpp.o -c /home/zmm/practice/version1/solvepnp/src/fileLoad.cpp",
+  "file": "/home/zmm/practice/version1/solvepnp/src/fileLoad.cpp"
+}
+]

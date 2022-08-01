@@ -1,0 +1,4 @@
+/home/zmm/practice/version1/mousedrawpoints/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/practice/version1/mousedrawpoints/build/CMakeFiles/edit_cache.dir
+/home/zmm/practice/version1/mousedrawpoints/build/CMakeFiles/test.dir
+/home/zmm/practice/version1/mousedrawpoints/build/CMakeFiles/CapPixel.dir

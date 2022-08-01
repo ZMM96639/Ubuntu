@@ -1,0 +1,10 @@
+# ninja log v5
+1	866	1659152600798870371	CMakeFiles/solvePnP.dir/src/fileLoad.cpp.o	a965c887f132f892
+0	3225	1659152603155199188	CMakeFiles/solvePnP.dir/src/PoseEdge.cpp.o	117118f155ce2c6c
+1	7368	1659152607287781408	CMakeFiles/solvePnP.dir/src/PoseVertex.cpp.o	5efebdb7837b9603
+0	12944	1659152612852575141	CMakeFiles/solvePnP.dir/src/BundleAdjustment.cpp.o	6d988c583360cac4
+12945	13257	1659152613140616499	libsolvePnP.a	8d2a3e8f8c34ff03
+2	1379	1659153387896907327	CMakeFiles/pose_estimation_3d2d.dir/Examples/pose_estimation_3d2d.cpp.o	b86349018e15d13d
+3	692	1659153432595110825	CMakeFiles/solvePnP.dir/src/Loadfile.cpp.o	be82396a267a8157
+693	1045	1659153432906672178	libsolvePnP.a	c4a50ab72264a54b
+1045	2031	1659153433921275056	pose_estimation_3d2d	13e092ea4ed73fb9

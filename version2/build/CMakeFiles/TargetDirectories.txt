@@ -1,0 +1,6 @@
+/home/zmm/practice/version2/build/CMakeFiles/edit_cache.dir
+/home/zmm/practice/version2/build/CMakeFiles/test.dir
+/home/zmm/practice/version2/build/CMakeFiles/pdal_plugin_filter_drawpointpaironimage.dir
+/home/zmm/practice/version2/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/practice/version2/build/CMakeFiles/pdal_plugin_filter_pcdprojecttoimages.dir
+/home/zmm/practice/version2/build/CMakeFiles/pdal_plugin_filter_pose1topose2.dir

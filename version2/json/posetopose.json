@@ -1,0 +1,18 @@
+[
+    {
+        "type": "readers.text",
+        "filename" : "/home/zmm/practice/version2/json/data/Lidar-Camera.txt"
+    },
+
+    {
+        "type" : "filters.pose1topose2",
+
+        "groundtruth" : ["0.353","-0.935","-0.008","-0.534",
+                         "0.222","0.093","-0.971","-0.021",
+                         "0.909","0.341","0.240","0.101",
+                         "0","0","0","1"],
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "angle_unit": "degree"
+    }
+    
+]
