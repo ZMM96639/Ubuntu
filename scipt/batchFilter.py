@@ -90,7 +90,8 @@ def pdal_batch_process(path, idir, odir, writer_name, oext, json_path, options):
     # print("/************/")
     # print(data[23][0])
 
-    for i in range(num):
+    for t in range(1):
+        i = 0
         output_relative = str(i) + oext
         output_file = os.path.join(odir, output_relative)
         arg = "\"" + str(data[i][0]) + " " + str(data[i][1]) + " " + str(data[i][2]) + " " + str(data[i][3]) + \
@@ -106,10 +107,10 @@ def pdal_batch_process(path, idir, odir, writer_name, oext, json_path, options):
 
 
 if __name__ == '__main__':
-    json_path = "/home/zmm/practice/version2/data/script/point_cloud.json"
-    extrinsic_path = "/home/zmm/practice/version2/data/param/extrinsic.txt"
+    json_path = "/home/zmm/practice/version3/data/script/point_cloud.json"
+    extrinsic_path = "/home/zmm/practice/version3/data/param/extrinsic.txt"
 
-    idir = "/home/zmm/practice/version2/data/param/var.txt"
-    odir = "/home/zmm/practice/version2/data/result"
+    idir = "/home/zmm/practice/version3/data/param/var.txt"
+    odir = "/home/zmm/practice/version3/data/result"
 
     pdal_batch_process(extrinsic_path, idir, odir, "las", ".laz", json_path, "")
