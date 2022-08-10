@@ -1,15 +1,14 @@
 [ 
     {
         "type":"readers.text",
-        "filename":"/home/zmm/practice/poseErr/json/LidarChessPlan/txt/*.txt",
-        "header":"X  Y  Z"
+        "filename":"/home/zmm/practice/version2/json/pcdToimage/processed/1.txt"
 
     },
   
     {   
         "type":"filters.pcdprojecttoimages",
-        "image_file":"/home/zmm/practice/poseErr/json/data/pic/1.png",
-        "image_outfile":"/home/zmm/practice/poseErr/json/rep1.png",
+        "image_file":"/home/zmm/practice/version2/json/data/pic/1.png",
+        "image_outfile":"/home/zmm/practice/version2/json/pcdToimage/result/rep1.png",
       
         "camera_intrinsic":["1463.712","0","633.992",
                              "0.000000","1465.228","422.927",

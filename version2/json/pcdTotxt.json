@@ -1,0 +1,11 @@
+[
+    {
+        "type": "readers.pcd",
+        "filename": "/home/zmm/practice/version2/json/pcdToimage/origin/0001.pcd"
+    },
+
+    {
+        "type": "writers.text",
+        "filename": "/home/zmm/practice/version2/json/pcdToimage/pointsCloud/0001.txt"
+    }
+]

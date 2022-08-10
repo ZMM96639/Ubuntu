@@ -48,10 +48,6 @@ namespace pdal
 
     void PcdprojectToImages::addDimensions(PointLayoutPtr layout)
     {
-        layout->registerDim(Dimension::Id::X);
-        layout->registerDim(Dimension::Id::Y);
-        layout->registerDim(Dimension::Id::Z);
-        layout->registerDim(Dimension::Id::Intensity);
     }
 
     void PcdprojectToImages::prepared(PointTableRef table)
@@ -64,6 +60,10 @@ namespace pdal
         {
             throwError("Dimension X Y Z does not all exist.");
         }
+
+        m_nameIds.insert(std::make_pair("X", Dimension::Id::X));
+        m_nameIds.insert(std::make_pair("Y", Dimension::Id::Y));
+        m_nameIds.insert(std::make_pair("Z", Dimension::Id::Z));
     }
 
     void PcdprojectToImages::filter(PointView &view)
@@ -73,9 +73,9 @@ namespace pdal
         {
             PointRef point(view, id);
 
-            Eigen::Vector3d veh_pt(point.getFieldAs<double>(pdal::Dimension::Id::X),
-                                   point.getFieldAs<double>(pdal::Dimension::Id::Y),
-                                   point.getFieldAs<double>(pdal::Dimension::Id::Z));
+            Eigen::Vector3d veh_pt(point.getFieldAs<double>(m_nameIds["X"]),
+                                   point.getFieldAs<double>(m_nameIds["Y"]),
+                                   point.getFieldAs<double>(m_nameIds["Z"]));
 
             Eigen::Vector3d camera_pt = trans_cam_veh * veh_pt;
             Eigen::Vector3d img_pt = (m_camera_intrinsic * camera_pt) / camera_pt[2];
@@ -91,7 +91,7 @@ namespace pdal
 
             cv::circle(image, cv::Point(img_pt[0], img_pt[1]), 1, cv::Scalar(0, 255, 0), 0.5, CV_AA, 0);
 
-            cv::imwrite(m_img_outfile,image);
+            cv::imwrite(m_img_outfile, image);
         }
     }
 

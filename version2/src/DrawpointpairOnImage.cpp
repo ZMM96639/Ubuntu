@@ -22,9 +22,6 @@ namespace pdal
 
     void DrawpointpairOnImage::addArgs(ProgramArgs &args)
     {
-        args.add("ppoint_file", "ppoint_file path", m_ppoint_file).setPositional();
-        args.add("ppoint_outfile", "ppoint_outfile path", m_ppoint_outfile).setPositional();
-
         args.add("image_file", "image_file path", m_img_file).setPositional();
         args.add("image_outfile", "image_outfile path", m_img_outfile).setPositional();
 
@@ -32,15 +29,14 @@ namespace pdal
         args.add("lidarTocamera_rotation", "lidarTocamera 3x3 rotation", m_arg_lidarTocamera_rotation).setPositional();
         args.add("lidarTocamera_translation", "lidarTocamera 3x1 translation", m_arg_lidarTocamera_translation).setPositional();
 
+        args.add("pixel_dimension", "pixel coordinate along x and y direction", m_pixel_dimensions);
+
         args.add("image_width", "image width", m_img_width).setPositional();
         args.add("image_height", "image height", m_img_height).setPositional();
     }
 
     void DrawpointpairOnImage::initialize()
     {
-        // load pixelpoints
-        dataInput(m_ppoint_file, m_ppoint);
-
         // initialize camera intrinsic matrix
         dataInput(m_arg_camera_intrinsic, m_camera_intrinsic);
 
@@ -56,10 +52,11 @@ namespace pdal
 
     void DrawpointpairOnImage::addDimensions(PointLayoutPtr layout)
     {
-        layout->registerDim(Dimension::Id::X);
-        layout->registerDim(Dimension::Id::Y);
-        layout->registerDim(Dimension::Id::Z);
-        layout->registerDim(Dimension::Id::Intensity);
+        for (auto &dim_name : m_pixel_dimensions)
+        {
+            Dimension::Type dim_type = Dimension::Type::Double;
+            Dimension::Id dim_id = layout->registerOrAssignDim(dim_name, dim_type);
+        }
     }
 
     void DrawpointpairOnImage::prepared(PointTableRef table)
@@ -72,7 +69,23 @@ namespace pdal
         {
             throwError("Dimension X Y Z does not all exist.");
         }
+
+        m_nameIds.insert(std::make_pair("X", Dimension::Id::X));
+        m_nameIds.insert(std::make_pair("Y", Dimension::Id::Y));
+        m_nameIds.insert(std::make_pair("Z", Dimension::Id::Z));
+
+        for (auto &dim_name : m_pixel_dimensions)
+        {
+            Dimension::Id dim_id = layout->findDim(dim_name);
+            if (dim_id == Dimension::Id::Unknown)
+            {
+                throwError("pixel coordinate " + dim_name + " does not exist!");
+            }
+            m_nameIds.insert(std::make_pair(dim_name, dim_id));
+        }
     }
+
+    void DrawpointpairOnImage::processOne(PointRef &point) {}
 
     void DrawpointpairOnImage::filter(PointView &view)
     {
@@ -82,18 +95,21 @@ namespace pdal
         {
             PointRef point(view, id);
 
-            Eigen::Vector3d veh_pt(point.getFieldAs<double>(pdal::Dimension::Id::X),
-                                   point.getFieldAs<double>(pdal::Dimension::Id::Y),
-                                   point.getFieldAs<double>(pdal::Dimension::Id::Z));
+            Eigen::Vector3d veh_pt(point.getFieldAs<double>(m_nameIds["X"]),
+                                   point.getFieldAs<double>(m_nameIds["Y"]),
+                                   point.getFieldAs<double>(m_nameIds["Z"]));
+
+            Eigen::Vector2d veh_pp(point.getFieldAs<double>(m_nameIds["u"]),
+                                   point.getFieldAs<double>(m_nameIds["v"]));
 
             Eigen::Vector3d camera_pt = m_trans_cam_veh * veh_pt;
             Eigen::Vector3d img_pt = (m_camera_intrinsic * camera_pt) / camera_pt[2];
 
-            Err_rep.push_back(Eigen::Vector2d(m_ppoint[id][0] - img_pt[0], m_ppoint[id][1] - img_pt[1]));
+            double theta_u = veh_pp[0] - img_pt[0];
+            double theta_v = veh_pp[1] - img_pt[1];
 
-            // std::cout << img_pt << std::endl;
-
-            m_outppoint.push_back(img_pt);
+            point.setField(m_nameIds["theta_u"], theta_u);
+            point.setField(m_nameIds["theta_v"], theta_v);
 
             if (img_pt[0] <= 0 || img_pt[1] <= 0 || img_pt[0] >= m_img_width || img_pt[1] >= m_img_height)
             {
@@ -104,30 +120,14 @@ namespace pdal
             image.at<cv::Vec3b>(img_pt[1], img_pt[0])[1] = 0;
             image.at<cv::Vec3b>(img_pt[1], img_pt[0])[2] = 255;
 
-            image.at<cv::Vec3b>(m_ppoint[id][1], m_ppoint[id][0])[0] = 0;
-            image.at<cv::Vec3b>(m_ppoint[id][1], m_ppoint[id][0])[1] = 255;
-            image.at<cv::Vec3b>(m_ppoint[id][1], m_ppoint[id][0])[2] = 0;
+            image.at<cv::Vec3b>(veh_pp[1], veh_pp[0])[0] = 0;
+            image.at<cv::Vec3b>(veh_pp[1], veh_pp[0])[1] = 255;
+            image.at<cv::Vec3b>(veh_pp[1], veh_pp[0])[2] = 0;
 
             cv::circle(image, cv::Point(img_pt[0], img_pt[1]), 8, cv::Scalar(0, 0, 255), 1, CV_AA, 0);
-            cv::circle(image, cv::Point(m_ppoint[id][0], m_ppoint[id][1]), 8, cv::Scalar(0, 255, 0), 1, CV_AA, 0);
+            cv::circle(image, cv::Point(veh_pp[0], veh_pp[1]), 8, cv::Scalar(0, 255, 0), 1, CV_AA, 0);
         }
 
-        std::cout << "/**************************/" << std::endl;
-        std::cout << "Err_rep:" << std::endl;
-    
-        double sum = 0;
-        for (int i = 0; i < Err_rep.size(); ++i)
-        {
-            sum += Err_rep[i][0] * Err_rep[i][0] + Err_rep[i][1] * Err_rep[i][1];
-            std::cout << "(u,v): ("
-                      << Err_rep[i][0] << "," << Err_rep[i][1]
-                      << ") (units: pixels)" << std::endl;
-        }
-
-        std::cout << "ReprojectionErr: " << sqrt(sum) << " pixels" <<std::endl;
-        std::cout << "/**************************/" << std::endl;
-
-        dataOutput(m_ppoint_outfile, m_outppoint);
         cv::imwrite(m_img_outfile, image);
     }
 

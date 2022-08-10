@@ -28,15 +28,7 @@ namespace pdal
 
     void Pose1Topose2::initialize()
     {
-        dataInput(m_arg_groundtruth_vals, m_groundtruth, m_invert);
-        if (m_invert == false)
-        {
-            std::cout << "0" << std::endl;
-        }
-        else
-        {
-            std::cout << "1" << std::endl;
-        }
+        dataInput(m_arg_groundtruth_vals, m_groundtruth, true);
     }
 
     void Pose1Topose2::addDimensions(PointLayoutPtr layout)
@@ -64,7 +56,7 @@ namespace pdal
 
         for (auto &dim_name : m_matrix_dimensions)
         {
-            Dimension::Id dim_id = table.layout()->findDim(dim_name);
+            Dimension::Id dim_id = layout->findDim(dim_name);
 
             if (dim_id == Dimension::Id::Unknown)
             {
@@ -95,7 +87,7 @@ namespace pdal
 
         Eigen::Isometry3d transform = dilu::mapping::translationAndRotationMatrixToIsometry3d(tranlation_, rotation_);
 
-        m_error = m_groundtruth * transform.inverse();
+        m_error = m_groundtruth * transform;
 
         Eigen::Matrix3d rotation;
         int r = 0, c = 0;

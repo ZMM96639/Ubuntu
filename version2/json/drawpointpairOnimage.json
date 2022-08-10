@@ -1,19 +1,13 @@
 [ 
     {
         "type":"readers.text",
-        "filename":"/home/zmm/practice/version1/poseErr/json/data/wp/1.txt",
-        "header":"X  Y  Z"
-
+        "filename":"/home/zmm/practice/version2/json/drawPointpairs/XYZuv/7.txt"
     },
   
     {      
         "type":"filters.drawpointpaironimage",
-
-        "ppoint_file":"/home/zmm/practice/version1/poseErr/json/data/pp/8.txt",
-        "ppoint_outfile":"/home/zmm/practice/version1/poseErr/json/out8.txt",
-
-        "image_file":"/home/zmm/practice/version1/poseErr/json/data/pic/8.png",
-        "image_outfile":"/home/zmm/practice/version1/poseErr/json/data/result/2.png",
+        "image_file":"/home/zmm/practice/version2/json/data/pic/7.png",
+        "image_outfile":"/home/zmm/practice/version2/json/drawPointpairs/result/rep7.png",
       
         "camera_intrinsic":["1463.712","0","633.992",
                              "0.000000","1465.228","422.927",
@@ -24,8 +18,15 @@
                                   "0.903","0.374","0.214"],
 
         "lidarTocamera_translation":["-0.647", "0.079", "0.241"],
+
+        "pixel_dimension" : "u,v,theta_u,theta_v",
       
         "image_width":"1280",
         "image_height":"960"
+    },
+
+    {
+        "type" : "writers.text",
+        "filename" : "/home/zmm/practice/version2/json/drawPointpairs/Err/7.txt"
     }
 ]

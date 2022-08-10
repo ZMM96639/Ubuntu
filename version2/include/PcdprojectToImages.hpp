@@ -35,6 +35,8 @@ namespace pdal
         std::vector<double> m_arg_lidarTocamera_rotation;
         std::vector<double> m_arg_lidarTocamera_translation;
 
+        std::map<std::string, Dimension::Id> m_nameIds;
+
         Eigen::Matrix3d m_camera_intrinsic;
         Eigen::Isometry3d trans_cam_veh;
 

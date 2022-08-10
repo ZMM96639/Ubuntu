@@ -21,9 +21,9 @@ namespace pdal
         virtual void initialize() override;
 
         virtual void addDimensions(PointLayoutPtr layout) override;
-        virtual void processOne(PointRef &point);
         virtual void prepared(PointTableRef table) override;
 
+        virtual void processOne(PointRef &point);
         virtual void filter(PointView &view) override;
 
         void dataInput(std::vector<double> &matrix_vals, Eigen::Isometry3d &matrix, bool invert);

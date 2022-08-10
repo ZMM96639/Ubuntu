@@ -22,6 +22,8 @@ namespace pdal
         virtual void initialize();
         virtual void addDimensions(PointLayoutPtr layout);
         virtual void prepared(PointTableRef table);
+
+        virtual void processOne(PointRef &point);
         virtual void filter(PointView &view);
 
         void dataInput(std::vector<double> &arg_matrix, Eigen::Matrix3d &matrix);
@@ -36,8 +38,7 @@ namespace pdal
     private:
         std::string m_img_file, m_img_outfile;
 
-        std::string m_ppoint_file;
-        std::string m_ppoint_outfile;
+        StringList m_pixel_dimensions;
 
         std::vector<double> m_arg_camera_intrinsic;
         std::vector<double> m_arg_lidarTocamera_rotation;
@@ -46,8 +47,7 @@ namespace pdal
         Eigen::Matrix3d m_camera_intrinsic;
         Eigen::Isometry3d m_trans_cam_veh;
 
-        std::vector<Eigen::Vector2d> m_ppoint, Err_rep;
-        std::vector<Eigen::Vector3d> m_outppoint;
+        std::map<std::string, Dimension::Id> m_nameIds;
 
         int m_img_width;
         int m_img_height;
