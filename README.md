@@ -1,8 +1,10 @@
-# Ubuntu
-1. BA using tutorial: 
-    camera extrinsic optimization using g2o;
-    examples of curve fitting using g2o;
-    g2o using template including own vertex, edge and bundleAdjustment class.
+### Ubuntu
+
+#### BA using tutorial: 
+    1. Camera extrinsic optimization using G2O;
+    2. Examples of curve fitting using G2O;
+    3. G2O using template including own vertex, edge and bundleAdjustment class.
     
-2. image processing test using OpenCV
-3. pdal using  tutorial
+#### image processing test using OpenCV
+
+#### pdal using  tutorial
