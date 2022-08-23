@@ -1,0 +1,77 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "poseErr",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_drawpointpaironimage::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_drawpointpaironimage-Debug-92c71735ee478835422f.json",
+					"name" : "pdal_plugin_filter_drawpointpaironimage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pcdprojecttoimages::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pcdprojecttoimages-Debug-e545f8889271c9b476a3.json",
+					"name" : "pdal_plugin_filter_pcdprojecttoimages",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pose1topose2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pose1topose2-Debug-8245b5138485b898d115.json",
+					"name" : "pdal_plugin_filter_pose1topose2",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/zmm/practice/version2/build",
+		"source" : "/home/zmm/practice/version2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

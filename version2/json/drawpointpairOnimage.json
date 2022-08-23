@@ -1,32 +1,48 @@
-[ 
+[
     {
-        "type":"readers.text",
-        "filename":"/home/zmm/practice/version2/json/drawPointpairs/XYZuv/7.txt"
+        "type": "readers.text",
+        "filename": "/home/zmm/practice/version2/json/drawPointpairs/XYZuv/7.txt"
     },
-  
-    {      
-        "type":"filters.drawpointpaironimage",
-        "image_file":"/home/zmm/practice/version2/json/data/pic/7.png",
-        "image_outfile":"/home/zmm/practice/version2/json/drawPointpairs/result/rep7.png",
-      
-        "camera_intrinsic":["1463.712","0","633.992",
-                             "0.000000","1465.228","422.927",
-                             "0","0","1"],
-                             
-        "lidarTocamera_rotation":["0.382","-0.924","0.002",
-                                  "0.198","0.080","-0.977",
-                                  "0.903","0.374","0.214"],
-
-        "lidarTocamera_translation":["-0.647", "0.079", "0.241"],
-
-        "pixel_dimension" : "u,v,theta_u,theta_v",
-      
-        "image_width":"1280",
-        "image_height":"960"
-    },
-
     {
-        "type" : "writers.text",
-        "filename" : "/home/zmm/practice/version2/json/drawPointpairs/Err/7.txt"
+        "type": "filters.drawpointpaironimage",
+        "image_file": "/home/zmm/practice/version2/json/data/pic/t7.png",
+        "image_outfile": "/home/zmm/practice/version2/json/drawPointpairs/result/rept7.png",
+        "camera_intrinsic": [
+            "1463.712",
+            "0",
+            "633.992",
+            "0.000000",
+            "1465.228",
+            "422.927",
+            "0",
+            "0",
+            "1"
+        ],
+        "lidarTocamera_rotation": [
+            "0.382",
+            "-0.924",
+            "0.002",
+            "0.198",
+            "0.080",
+            "-0.977",
+            "0.903",
+            "0.374",
+            "0.214"
+        ],
+        "lidarTocamera_translation": [
+            "-0.647",
+            "0.079",
+            "0.241"
+        ],
+        "pixel_dimension": "u,v,theta_u,theta_v",
+        "image_width": "1280",
+        "image_height": "960"
+    },
+    {
+        "type": "writers.text",
+        "order": "theta_u,theta_v",
+        "keep_unspecified": false,
+        "write_header": true,
+        "filename": "/home/zmm/practice/version2/json/drawPointpairs/Err/t7.txt"
     }
 ]

@@ -1,0 +1,62 @@
+[
+    {
+        "type": "readers.text",
+        "filename": "/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/script/xyzrpy.txt",
+        "header": "X Y Z Roll Pitch Yaw",
+        "skip": "1"
+    },
+    {
+        "type": "filters.eulerconvert",
+        "conversion": "euler2matrix",
+        "order": "IE",
+        "x_angle_dimension": "Pitch",
+        "y_angle_dimension": "Roll",
+        "z_angle_dimension": "Yaw",
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "angle_unit": "degree"
+    },
+    {
+        "type": "filters.pose6dtransformation",
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "corrospondence": "matrix",
+        "matrix": ["0","-1","0","0",
+            "0","0","-1","0",
+            "1","0","0","0",
+            "0","0","0","1"
+            ],
+        "invert":"false"
+    },
+    {
+        "type":"writers.text",
+        "filename":"/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/param/imu2lidar.txt",
+        "precision":"10",
+        "order": "Rot11,Rot12,Rot13,X,Rot21,Rot22,Rot23,Y,Rot31,Rot32,Rot33,Z",
+        "keep_unspecified": "false",
+        "delimiter":" ",
+        "quote_header": "false"
+    },
+
+
+
+
+    {
+        "type": "filters.eulerconvert",
+        "conversion": "matrix2euler",
+        "order": "ROS",
+        "x_angle_dimension": "Roll",
+        "y_angle_dimension": "Pitch",
+        "z_angle_dimension": "Yaw",
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "angle_unit": "radian"
+    },
+    {
+        "type":"writers.text",
+        "filename":"/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/ros_visual/imu2lidar.txt",
+        "precision":"10",
+        "order": "X,Y,Z,Yaw,Pitch,Roll",
+        "keep_unspecified": "false",
+        "delimiter":" ",
+        "quote_header": "false"
+    }
+   
+]

@@ -1,0 +1,86 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "pdal_dilu",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_eulerconvert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_eulerconvert-Debug-f6b4008c064c89086917.json",
+					"name" : "pdal_plugin_filter_eulerconvert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_georeference::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_georeference-Debug-05c2de3d75969abf8b73.json",
+					"name" : "pdal_plugin_filter_georeference",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_pose6dtransformation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_pose6dtransformation-Debug-326504b3d70a3a2f5ccf.json",
+					"name" : "pdal_plugin_filter_pose6dtransformation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdal_plugin_filter_projecttoimages::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdal_plugin_filter_projecttoimages-Debug-5c5d4c3363b12c78bc68.json",
+					"name" : "pdal_plugin_filter_projecttoimages",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/zmm/practice/version3/build",
+		"source" : "/home/zmm/practice/version3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

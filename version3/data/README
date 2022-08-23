@@ -1,0 +1,25 @@
+
+Project:     0115
+Program:     Inertial Explorer Version 8.90.2428
+Profile:     20200811DiluPos
+Source:      GNSS/INS Epochs(TC Combined)
+SolFile:      Z:\01_Production_control\34_jili\20220115_A8Q7N1_01\Rawdata\selfcheck\pos_project\0115.ct
+ProcessInfo: 0115 by Unknown on 1/18/2022 at 14:56:27
+
+Datum:       WGS84
+Master 1:    Name 0001, Status ENABLED
+             Antenna height 1.514 m, to L1PC [Generic(NONE)]
+             Lat, Lon, El Hgt 30 20 06.42811, 121 14 12.60599, 16.746 m [WGS84, N/A]
+Remote:      Antenna height 0.000 m, to L1PC [Generic(NONE)]
+IMU to GNSS Antenna Lever Arms:
+             x=0.062, y=1.323, z=0.083 m (x-right, y-fwd, z-up)
+Body to IMU Rotations:
+             xRot=0.000, yRot=0.000, zRot=180.000 degrees
+SD Scaling Settings:
+  Position: 1.0000
+  Velocity: 1.0000
+  Attitude: 1.0000
+
+  GPSTime       Latitude      Longitude        H-Ell           Roll          Pitch        Heading                        GPSTime     VEast    VNorth       VUp Q NS   PDOP   HDOP                    Cx11                    Cx21                    Cx22                    Cx31                    Cx32                    Cx33       SDEast      SDNorth     SDHeight         HdngSD        PitchSD         RollSD     SD-VE     SD-VN     SD-VH  AngRateX  AngRateY  AngRateZ AccBdyX AccBdyY AccBdyZ      AccBiasX      AccBiasY      AccBiasZ    GyroDriftX    GyroDriftY    GyroDriftZ
+    (sec)          (deg)          (deg)          (m)          (deg)          (deg)          (deg)                          (sec)     (m/s)     (m/s)     (m/s)       (dop)  (dop)                   (m^2)                   (m^2)                   (m^2)                   (m^2)                   (m^2)                   (m^2)          (m)          (m)          (m)          (deg)          (deg)          (deg)     (m/s)     (m/s)     (m/s)   (deg/s)   (deg/s)   (deg/s) (m/s^2) (m/s^2) (m/s^2)       (m/s^2)       (m/s^2)       (m/s^2)       (deg/s)       (deg/s)       (deg/s)
+ 5721.000  30.3603286763 121.3114109212       17.956   1.0326017271  -0.5003124763 -80.4669208159                1326245721.0000    -0.003     0.001    -0.001 1  8   0.48   0.27        4.8240482902E-05       -3.5029725256E-05        7.7050532469E-05       -3.2565639124E-05        3.7874526473E-05        5.8130762903E-05        0.005        0.005        0.012   0.0176275466   0.0037688541   0.0037148541     0.002     0.002     0.002     0.024     0.033     0.031  -0.035   0.017   0.029  -5.05858E-03   8.57533E-03   3.91101E-03  -1.79283E-04  -7.07823E-05  -7.05766E-05

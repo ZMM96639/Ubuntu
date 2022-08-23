@@ -5,7 +5,7 @@
 using namespace cv;
 using namespace std;
 
-// vector<cv::Point> Mouse::ppoints;// comment the code will happen error.
+vector<cv::Point> Mouse::ppoints;// comment the code will happen error.
 
 void Mouse::onMouse(int event, int x, int y, int flags, void *param)
 {

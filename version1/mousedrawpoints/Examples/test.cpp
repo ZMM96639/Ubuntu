@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    string path = "/home/zmm/practice/solvepnp/data";
+    string path = "/home/zmm/practice/version1/solvepnp/data";
 
     if (path.back() != '/')
     {

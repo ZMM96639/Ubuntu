@@ -1,0 +1,36 @@
+[
+    {
+        "type": "readers.text",
+        "filename": "/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/Processdata/pos/20220115_A8Q7N1_01.pos",
+        "header": "GPSDayTime       Y      X        Z           Roll          Pitch        Heading                        GPSTime     VEast    VNorth       VUp Q NS   PDOP   HDOP                    Cx11                    Cx21                    Cx22                    Cx31                    Cx32                    Cx33       SDEast      SDNorth     SDHeight         HdngSD        PitchSD         RollSD     SDVE     SDVN     SDVH  AngRateX  AngRateY  AngRateZ AccBdyX AccBdyY AccBdyZ      AccBiasX      AccBiasY      AccBiasZ    GyroDriftX    GyroDriftY    GyroDriftZ",
+        "skip": "24"
+    },
+    {
+        "type": "filters.range",
+        "limits": "GPSTime[1326246866.505:1326246906.250]"
+    },
+
+    {
+        "type": "filters.poseconvert",
+        "conversion": "llhhpr2utmhpr"
+    },
+    {
+        "type": "filters.eulerconvert",
+        "conversion": "euler2matrix",
+        "order": "IE",
+        "x_angle_dimension": "Pitch",
+        "y_angle_dimension": "Roll",
+        "z_angle_dimension": "Heading",
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "angle_unit": "degree"
+    },
+    {
+        "type":"writers.text",
+        "filename":"/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/imu_pose/imu_pose.csv",
+        "precision":"10",
+        "order": "GPSTime:6,X:3,Y:3,Z:3,Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33,Q:0,NS:0,   PDOP:3,HDOP:3,SDEast,SDNorth,SDHeight,HdngSD,PitchSD,RollSD",
+        "keep_unspecified":"true",
+        "quote_header": "false"
+    }
+
+]

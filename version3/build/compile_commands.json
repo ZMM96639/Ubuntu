@@ -1,0 +1,61 @@
+[
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_projecttoimages_EXPORTS -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include -isystem /usr/local/include/opencv4  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_projecttoimages.dir/src/ProjectToImages.cpp.o -c /home/zmm/practice/version3/src/ProjectToImages.cpp",
+  "file": "/home/zmm/practice/version3/src/ProjectToImages.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_projecttoimages_EXPORTS -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include -isystem /usr/local/include/opencv4  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_projecttoimages.dir/third_party/src/pose.cpp.o -c /home/zmm/practice/version3/third_party/src/pose.cpp",
+  "file": "/home/zmm/practice/version3/third_party/src/pose.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_pose6dtransformation_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_pose6dtransformation.dir/src/Pose6DTransformation.cpp.o -c /home/zmm/practice/version3/src/Pose6DTransformation.cpp",
+  "file": "/home/zmm/practice/version3/src/Pose6DTransformation.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_pose6dtransformation_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_pose6dtransformation.dir/third_party/src/pose.cpp.o -c /home/zmm/practice/version3/third_party/src/pose.cpp",
+  "file": "/home/zmm/practice/version3/third_party/src/pose.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_georeference_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_georeference.dir/src/GeoReference.cpp.o -c /home/zmm/practice/version3/src/GeoReference.cpp",
+  "file": "/home/zmm/practice/version3/src/GeoReference.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_georeference_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_georeference.dir/src/isometry3d_interpolation_buffer.cpp.o -c /home/zmm/practice/version3/src/isometry3d_interpolation_buffer.cpp",
+  "file": "/home/zmm/practice/version3/src/isometry3d_interpolation_buffer.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_georeference_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_georeference.dir/src/ogr_conversions.cpp.o -c /home/zmm/practice/version3/src/ogr_conversions.cpp",
+  "file": "/home/zmm/practice/version3/src/ogr_conversions.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_georeference_EXPORTS -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_georeference.dir/third_party/src/pose.cpp.o -c /home/zmm/practice/version3/third_party/src/pose.cpp",
+  "file": "/home/zmm/practice/version3/third_party/src/pose.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_eulerconvert_EXPORTS -I/home/zmm/anaconda3/envs/Lidar_Camera/include -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include  -g -fPIC   -std=gnu++14 -o CMakeFiles/pdal_plugin_filter_eulerconvert.dir/src/EulerConvert.cpp.o -c /home/zmm/practice/version3/src/EulerConvert.cpp",
+  "file": "/home/zmm/practice/version3/src/EulerConvert.cpp"
+},
+
+{
+  "directory": "/home/zmm/practice/version3/build",
+  "command": "/usr/bin/c++  -Dpdal_plugin_filter_eulerconvert_EXPORTS -I/home/zmm/anaconda3/envs/Lidar_Camera/include -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include  -g -fPIC   -std=gnu++14 -o CMakeFiles/pdal_plugin_filter_eulerconvert.dir/third_party/src/pose.cpp.o -c /home/zmm/practice/version3/third_party/src/pose.cpp",
+  "file": "/home/zmm/practice/version3/third_party/src/pose.cpp"
+}
+]

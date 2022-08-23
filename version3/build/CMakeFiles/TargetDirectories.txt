@@ -1,0 +1,6 @@
+/home/zmm/practice/version3/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/practice/version3/build/CMakeFiles/edit_cache.dir
+/home/zmm/practice/version3/build/CMakeFiles/pdal_plugin_filter_projecttoimages.dir
+/home/zmm/practice/version3/build/CMakeFiles/pdal_plugin_filter_pose6dtransformation.dir
+/home/zmm/practice/version3/build/CMakeFiles/pdal_plugin_filter_georeference.dir
+/home/zmm/practice/version3/build/CMakeFiles/pdal_plugin_filter_eulerconvert.dir

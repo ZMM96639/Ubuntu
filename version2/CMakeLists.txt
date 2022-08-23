@@ -32,14 +32,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/third_party/include)
 
-
-# add_library(pdal_plugin_filter_eulerConvert SHARED src/EulerConvert.cpp third_party/src/pose.cpp)
-# target_link_libraries(pdal_plugin_filter_eulerConvert ${PDAL_LIBRARIES})
-
-# add_library(pdal_plugin_filter_pose6Dtransformation SHARED src/Pose6DTransformation.cpp third_party/src/pose.cpp)
-# target_link_libraries(pdal_plugin_filter_pose6Dtransformation ${PDAL_LIBRARIES})
-
-
 add_library(pdal_plugin_filter_pose1topose2 SHARED src/Pose1Topose2.cpp third_party/src/pose.cpp)
 target_link_libraries(pdal_plugin_filter_pose1topose2 ${PDAL_LIBRARIES})
 
@@ -49,9 +41,6 @@ target_link_libraries(pdal_plugin_filter_pcdprojecttoimages ${PDAL_LIBRARIES} ${
 add_library(pdal_plugin_filter_drawpointpaironimage SHARED src/DrawpointpairOnImage.cpp third_party/src/pose.cpp)
 target_link_libraries(pdal_plugin_filter_drawpointpaironimage  ${OpenCV_LIBS} ${PDAL_LIBRARIES})
 
-
-add_executable(test Examples/test.cpp)
-target_link_libraries(test ${PDAL_LIBRARIES})
 
 
 

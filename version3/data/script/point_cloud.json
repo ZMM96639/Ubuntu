@@ -1,0 +1,44 @@
+[
+    {
+        "type": "readers.las",
+        "filename": "/home/zmm/practice/version3/data/lidar/lidar.laz"
+    },
+    {
+        "type": "filters.decimation",
+        "step": 20
+    },
+    {
+        "type": "filters.transformation",
+        "matrix": "-0.0001072893 -0.9999988630 -0.0015041445 0.06200000000.5768038464 0.0011668248 -0.8168818527 -0.1690000000 0.8168826790 -0.0009552390 0.5768030654 0.2290000000 0 0 0 1",
+        "invert": "false"
+    },
+    {
+        "type": "filters.georeference",
+        "targictory_filename": "/home/zmm/practice/version3/data/imu_pose/imu_pose.csv",
+        "matrix_dimensions": "Rot11,Rot12,Rot13,Rot21,Rot22,Rot23,Rot31,Rot32,Rot33",
+        "skip": "true"
+    },
+    {
+        "type": "filters.voxeldownsize",
+        "cell": 1e-07,
+        "mode": "center"
+    },
+    {
+        "type": "writers.las",
+        "filename": "/home/zmm/practice/version3/data/result/point_cloud1.laz",
+        "forward": "all",
+        "minor_version": "4",
+        "dataformat_id": "7",
+        "extra_dims": "all",
+        "scale_x": "0.001",
+        "scale_y": "0.001",
+        "scale_z": "0.001",
+        "offset_x": "auto",
+        "offset_y": "auto",
+        "offset_z": "auto",
+        "global_encoding": "0",
+        "software_id": "DiluTech(www.dilutech.com)",
+        "system_id": "DiluTech(www.dilutech.com)",
+        "a_srs": "EPSG:32651"
+    }
+]

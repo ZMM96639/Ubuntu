@@ -1,8 +1,0 @@
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/pdal_plugin_filter_drawpointpaironimage.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/rebuild_cache.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/pdal_plugin_filter_pcdprojecttoimages.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/pdal_plugin_filter_pose1topose2.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/pdal_plugin_filter_pose6Dtransformation.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/edit_cache.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/test.dir
-/home/zmm/practice/version1/poseErr/build/CMakeFiles/pdal_plugin_filter_eulerConvert.dir

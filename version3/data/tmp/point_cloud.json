@@ -1,0 +1,39 @@
+[
+    
+    {
+        "type": "readers.las",
+        "filename": "/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/project_cloud/*.laz"
+    },
+    {
+        "type": "filters.assign",
+        "value": "GpsTime = GpsTime + 1E9 where GpsTime > 1E8 && GpsTime < 1E9"
+    },
+    {
+        "type": "filters.range",
+        "limits": "GPSTime[1326246866.505:1326246906.250]"
+    },
+    {
+        "type": "filters.merge"
+    },
+    {
+        "type": "filters.sort",
+        "dimension": "GPSTime"
+    },
+    {
+        "type": "writers.las",
+        "filename": "/media/dilu18/DataDepart/test/20220115_A8Q7N1_01/lidar2imu_calib_test/dataset1/point_cloud/point_cloud.laz",
+        "forward":"all",
+        "minor_version":"4",
+        "dataformat_id":"7",
+        "scale_x":"0.001",
+        "scale_y":"0.001",
+        "scale_z":"0.001",
+        "offset_x":"auto",
+        "offset_y":"auto",
+        "offset_z":"auto",
+        "global_encoding":"0",
+        "software_id":"DiluTech(www.dilutech.com)",
+        "system_id":"DiluTech(www.dilutech.com)"
+    }
+]
+

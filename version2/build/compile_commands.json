@@ -1,12 +1,6 @@
 [
 {
   "directory": "/home/zmm/practice/version2/build",
-  "command": "/usr/bin/c++   -I/usr/local/include/opencv4 -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include  -g   -std=gnu++17 -o CMakeFiles/test.dir/Examples/test.cpp.o -c /home/zmm/practice/version2/Examples/test.cpp",
-  "file": "/home/zmm/practice/version2/Examples/test.cpp"
-},
-
-{
-  "directory": "/home/zmm/practice/version2/build",
   "command": "/usr/bin/c++  -Dpdal_plugin_filter_drawpointpaironimage_EXPORTS -I/home/zmm/anaconda3/envs/Lidar_Camera/include/eigen3 -I../include -I../third_party/include -isystem /home/zmm/anaconda3/envs/Lidar_Camera/include -isystem /usr/local/include/opencv4  -g -fPIC   -std=gnu++17 -o CMakeFiles/pdal_plugin_filter_drawpointpaironimage.dir/src/DrawpointpairOnImage.cpp.o -c /home/zmm/practice/version2/src/DrawpointpairOnImage.cpp",
   "file": "/home/zmm/practice/version2/src/DrawpointpairOnImage.cpp"
 },
