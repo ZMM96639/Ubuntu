@@ -25,8 +25,8 @@ int main(int argc, char **argv)
             filepath[i] = path + "pixel/scene1.txt";
     }
 
-    vector<Point3f> pts_3d;
-    vector<Point2f> pts_2d;
+    vector<Point3d> pts_3d;
+    vector<Point2d> pts_2d;
 
     Loadfile::dataImput(filepath[0], pts_3d);
 

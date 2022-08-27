@@ -1,5 +1,4 @@
 
-
 #include "VertexPose.hpp"
 
 void VertexPose::setToOriginImpl()

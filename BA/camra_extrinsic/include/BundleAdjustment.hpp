@@ -12,18 +12,18 @@ namespace BundleAdjustment
 
     typedef std::vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d>> VecVector3d;
 
+    void bundleAdjustmentG2O(
+        const VecVector3d &points_3d,
+        const VecVector2d &points_2d,
+        const cv::Mat &K,
+        Sophus::SE3d &pose);
+        
     void bundleAdjustmentGaussNewton(
         const VecVector3d &points_3d,
         const VecVector2d &points_2d,
         const cv::Mat &K,
         Sophus::SE3d &pose,
         const int &iterations = 10);
-
-    void bundleAdjustmentG2O(
-        const VecVector3d &points_3d,
-        const VecVector2d &points_2d,
-        const cv::Mat &K,
-        Sophus::SE3d &pose);
 
     cv::Point2d pixel2cam(const cv::Point2d &p, const cv::Mat &K);
 }

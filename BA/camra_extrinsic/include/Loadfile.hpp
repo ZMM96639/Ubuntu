@@ -11,8 +11,8 @@ public:
     ~Loadfile() = default;
 
 public:
-    static void dataImput(const std::string &filepath, std::vector<cv::Point3f> &p3d);
-    static void dataImput(const std::string &filepath, std::vector<cv::Point2f> &p2d);
+    static void dataImput(const std::string &filepath, std::vector<cv::Point3d> &p3d);
+    static void dataImput(const std::string &filepath, std::vector<cv::Point2d> &p2d);
 
     static bool fileExist(const std::string &path);
 

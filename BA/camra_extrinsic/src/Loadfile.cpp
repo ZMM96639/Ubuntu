@@ -8,7 +8,7 @@
 
 Loadfile::Loadfile(const std::string &path) : m_filepath(path) {}
 
-void Loadfile::dataImput(const std::string &filepath, std::vector<cv::Point3f> &p3d)
+void Loadfile::dataImput(const std::string &filepath, std::vector<cv::Point3d> &p3d)
 {
     if (!fileExist(filepath))
     {
@@ -34,7 +34,7 @@ void Loadfile::dataImput(const std::string &filepath, std::vector<cv::Point3f> &
     }
 }
 
-void Loadfile::dataImput(const std::string &filepath, std::vector<cv::Point2f> &p2d)
+void Loadfile::dataImput(const std::string &filepath, std::vector<cv::Point2d> &p2d)
 {
     if (!fileExist(filepath))
     {

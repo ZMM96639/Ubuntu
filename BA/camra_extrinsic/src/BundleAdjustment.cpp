@@ -15,6 +15,71 @@
 
 namespace BundleAdjustment
 {
+    void bundleAdjustmentG2O(
+        const VecVector3d &points_3d,
+        const VecVector2d &points_2d,
+        const cv::Mat &K,
+        Sophus::SE3d &pose)
+    {
+        // 初始化g2o
+        // BlockSolverTraits<PoseDim, LandmarkDim>
+        // PoseDim: 待优化变量; LandmarkDim: 误差维数
+
+        typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> Block;                                // pose维度为 6, landmark 维度为 3
+        Block::LinearSolverType *linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
+        Block *solver_ptr = new Block(linearSolver);                                                 // 矩阵块求解器
+
+        // 梯度下降方法，可以从GN, LM, DogLeg中选
+        auto solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr);
+
+        g2o::SparseOptimizer optimizer; // 图模型
+        optimizer.setAlgorithm(solver); // 设置求解器
+        optimizer.setVerbose(true);     // 打开调试输出
+
+        // vertex_pose
+        VertexPose *vertex_pose = new VertexPose();
+        vertex_pose->setId(0);
+        vertex_pose->setEstimate(Sophus::SE3d());
+        optimizer.addVertex(vertex_pose);
+
+        // K
+        Eigen::Matrix3d K_eigen;
+        K_eigen << K.at<double>(0, 0), K.at<double>(0, 1), K.at<double>(0, 2),
+            K.at<double>(1, 0), K.at<double>(1, 1), K.at<double>(1, 2),
+            K.at<double>(2, 0), K.at<double>(2, 1), K.at<double>(2, 2);
+
+        // edges
+        int index = 1;
+        for (size_t i = 0; i < points_2d.size(); ++i)
+        {
+            auto p2d = points_2d[i];
+            auto p3d = points_3d[i];
+            EdgeProjection *edge = new EdgeProjection(p3d, K_eigen);
+
+            edge->setId(index);
+            edge->setVertex(0, vertex_pose);
+            edge->setMeasurement(p2d);                         // 设置观测值，其实就是图2 里的匹配特征点的像素位置
+            edge->setInformation(Eigen::Matrix2d::Identity()); // 信息矩阵是二维方阵，因为误差是二维
+
+            optimizer.addEdge(edge);
+            index++;
+        }
+
+        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+        
+        optimizer.initializeOptimization();
+        optimizer.optimize(10);
+
+        std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+        std::chrono::duration<double> time_used = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+
+        std::cout << "optimization costs time: " << time_used.count() << " seconds." << std::endl;
+        std::cout << "pose estimated by g2o =\n"
+                  << vertex_pose->estimate().matrix() << std::endl;
+
+        pose = vertex_pose->estimate();
+    }
+
     void bundleAdjustmentGaussNewton(
         const VecVector3d &points_3d,
         const VecVector2d &points_2d,
@@ -92,72 +157,6 @@ namespace BundleAdjustment
 
         std::cout << "pose by g-n: \n"
                   << pose.matrix() << std::endl;
-    }
-
-    void bundleAdjustmentG2O(
-        const VecVector3d &points_3d,
-        const VecVector2d &points_2d,
-        const cv::Mat &K,
-        Sophus::SE3d &pose)
-    {
-        // 初始化g2o
-        // BlockSolverTraits<PoseDim, LandmarkDim>
-        // PoseDim: 待优化变量; LandmarkDim: 误差维数
-
-        typedef g2o::BlockSolver<g2o::BlockSolverTraits<6, 3>> Block;                                // pose维度为 6, landmark 维度为 3
-        Block::LinearSolverType *linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
-        Block *solver_ptr = new Block(linearSolver);                                                 // 矩阵块求解器
-
-        // 梯度下降方法，可以从GN, LM, DogLeg中选
-        auto solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr);
-
-        g2o::SparseOptimizer optimizer; // 图模型
-        optimizer.setAlgorithm(solver); // 设置求解器
-        optimizer.setVerbose(true);     // 打开调试输出
-
-        // vertex_pose
-        VertexPose *vertex_pose = new VertexPose();
-        vertex_pose->setId(0);
-        vertex_pose->setEstimate(Sophus::SE3d());
-        optimizer.addVertex(vertex_pose);
-
-        // K
-        Eigen::Matrix3d K_eigen;
-        K_eigen << K.at<double>(0, 0), K.at<double>(0, 1), K.at<double>(0, 2),
-            K.at<double>(1, 0), K.at<double>(1, 1), K.at<double>(1, 2),
-            K.at<double>(2, 0), K.at<double>(2, 1), K.at<double>(2, 2);
-
-        // edges
-        int index = 1;
-        for (size_t i = 0; i < points_2d.size(); ++i)
-        {
-            auto p2d = points_2d[i];
-            auto p3d = points_3d[i];
-            EdgeProjection *edge = new EdgeProjection(p3d, K_eigen);
-
-            edge->setId(index);
-            edge->setVertex(0, vertex_pose);
-            edge->setMeasurement(p2d);                         // 设置观测值，其实就是图2 里的匹配特征点的像素位置
-            edge->setInformation(Eigen::Matrix2d::Identity()); //信息矩阵是二维方阵，因为误差是二维
-
-            optimizer.addEdge(edge);
-            index++;
-        }
-
-        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
-
-        optimizer.setVerbose(true);
-        optimizer.initializeOptimization();
-        optimizer.optimize(10);
-
-        std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
-        std::chrono::duration<double> time_used = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-
-        std::cout << "optimization costs time: " << time_used.count() << " seconds." << std::endl;
-        std::cout << "pose estimated by g2o =\n"
-                  << vertex_pose->estimate().matrix() << std::endl;
-
-        pose = vertex_pose->estimate();
     }
 
     // 像素坐标转相机归一化坐标

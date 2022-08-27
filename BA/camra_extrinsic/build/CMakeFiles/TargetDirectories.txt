@@ -1,4 +1,4 @@
-/home/zmm/VScodeProjects/study/BA/camra_extrinsic/build/CMakeFiles/edit_cache.dir
-/home/zmm/VScodeProjects/study/BA/camra_extrinsic/build/CMakeFiles/rebuild_cache.dir
-/home/zmm/VScodeProjects/study/BA/camra_extrinsic/build/CMakeFiles/pose_estimation_3d2d.dir
-/home/zmm/VScodeProjects/study/BA/camra_extrinsic/build/CMakeFiles/bundleAdjustment.dir
+/home/zmm/gitRepositories/Ubuntu/BA/camra_extrinsic/build/CMakeFiles/edit_cache.dir
+/home/zmm/gitRepositories/Ubuntu/BA/camra_extrinsic/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/gitRepositories/Ubuntu/BA/camra_extrinsic/build/CMakeFiles/pose_estimation_3d2d.dir
+/home/zmm/gitRepositories/Ubuntu/BA/camra_extrinsic/build/CMakeFiles/bundleAdjustment.dir
