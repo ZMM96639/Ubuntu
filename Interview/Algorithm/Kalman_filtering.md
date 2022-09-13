@@ -30,3 +30,14 @@ $$P_k = (I - K_kH)P_k^-$$
 |Q|process noise covarivance matrix|n x n matrix|System Model|
 |K|Kalman Gain|n x m|Internal|
 |z-Hx|measurement residual|||
+
+It implements the algorithm directly as found in [An Introduction to the Kalman Filter](http://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf).
+
+More reference:
+[Zhamemo](https://github.com/Zhamemo/Ubuntu/tree/master/Interview/Algorithm)
+[Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
+[Kalman Filter Explained Simply](https://thekalmanfilter.com/kalman-filter-explained-simply/)
+[How a Kalman filter works in pictures](https://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/)
+
+
+
