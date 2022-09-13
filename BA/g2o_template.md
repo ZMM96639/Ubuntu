@@ -3,7 +3,9 @@
 ### 1. Theory
 
 #### *Gauss-Newton* :
-$$ f(x + \Delta x) \Rightarrow f(x) + \pmb J(x)\Delta x.$$ $$\Delta x^* = \argmin_{\Delta x} \frac{1}{2} \Vert {f(x)+\pmb J(x)\Delta x}\Vert^2. $$ $$\frac{1}{2}{\Vert f(x) + \pmb J(x)\Delta x\Vert}^2 = \frac{1}{2} \left(f(x) + \pmb J(x)\Delta x \right)^T\left(f(x) + \pmb J(x)\Delta x\right).$$ $$ = \frac{1}{2}\left(\Vert f(x)\Vert^2_2 + 2f(x)^T\pmb J(x)\Delta x + \Delta x^T\pmb J(x)^T\pmb J(x)\Delta x\right).$$
+$$ f(x + \Delta x) \Rightarrow f(x) + \pmb J(x)\Delta x.$$ $$\Delta x^* = \argmin_{\Delta x} \frac{1}{2} \Vert {f(x)+\pmb J(x)\Delta x}\Vert^2. $$ $$ \begin{align}
+\frac{1}{2}{\Vert f(x) + \pmb J(x)\Delta x\Vert}^2 & = \frac{1}{2} \left(f(x) + \pmb J(x)\Delta x \right)^T\left(f(x) + \pmb J(x)\Delta x\right) \\ & = \frac{1}{2}\left(\Vert f(x)\Vert^2_2 + 2f(x)^T\pmb J(x)\Delta x + \Delta x^T\pmb J(x)^T\pmb J(x)\Delta x\right)
+\end{align} $$
 
 ##### *Derivatives subject to* $\Delta x$ : $$\pmb J(x)^T\pmb J(x)\Delta x = -\pmb J(x)^Tf(x).$$ $$\pmb H\Delta x = \pmb g.$$
 
