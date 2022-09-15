@@ -13,7 +13,7 @@ $$\frac{dF}{dx} = 0.$$
 2. 对于第 $k$ 次 ***iteration***, 寻找一个 ***increment*** $\Delta x$,使得 $\Vert f(x_k+\Delta x_k)\Vert_2^2$ 达到 ***min***;
 3. 若 $\Delta x$ 足够小, ***Stop***. ***Otherwise***, $x_{k+1} = x_k + \Delta x_k$. 
 
-## g2o using tutorial
+## g2o
 
 #### 1. Theory
 
@@ -43,7 +43,7 @@ $$\min _{\Delta x_k}\frac{1}{2}\Vert f(x_k) + \pmb J(x_k)\Delta x\Vert^2 + \frac
 $$\rho = \frac {f(x + \Delta x) - f(x)}{\pmb J(x)\Delta x}.$$ 
 4.若 $\rho\gt\frac{3}{4}$, 则 $\mu = 2\mu$ ;若 $\rho\lt\frac{1}{4}$, 则 $\mu = 0.5\mu$ ;
 5. $x_{k+1} = x_k + \Delta x.$
-$$\left(\pmb H + \lambda \Delta \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\left(\pmb H + \lambda \pmb I\right)\Delta x = \pmb g.$$
+$$\left(\pmb H + \lambda \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\left(\pmb H + \lambda \pmb I\right)\Delta x = \pmb g.$$
 
 注：当 $\lambda$ 比较小时, `Levenberg-Marquadt` $\to$ `Gauss-Newton`; 当 $\lambda$ 比较大时, `Levenberg-Marquadt` $\to$ `最速下降法`.
 
@@ -127,7 +127,7 @@ $$\left(\pmb H + \lambda \Delta \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\lef
     7. InitializeOptimization
     8. Iteration
     ```
-
+## 
 
 ## Kalman filtering
 #### 1. Time Update("Predict")
