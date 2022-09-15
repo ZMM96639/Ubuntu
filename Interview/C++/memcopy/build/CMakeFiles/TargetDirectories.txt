@@ -1,0 +1,4 @@
+/home/zmm/gitRepositories/Ubuntu/Interview/C++/memcopy/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/gitRepositories/Ubuntu/Interview/C++/memcopy/build/CMakeFiles/edit_cache.dir
+/home/zmm/gitRepositories/Ubuntu/Interview/C++/memcopy/build/CMakeFiles/test.dir
+/home/zmm/gitRepositories/Ubuntu/Interview/C++/memcopy/build/CMakeFiles/memcopy.dir

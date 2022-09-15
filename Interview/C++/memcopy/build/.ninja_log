@@ -1,0 +1,5 @@
+# ninja log v5
+0	180	1663073473653475866	CMakeFiles/test.dir/Examples/main.cpp.o	b032a06da2740ac
+1	199	1663073473673476192	CMakeFiles/memcopy.dir/src/Mymemcopy.cpp.o	b921cddd36dafb37
+200	215	1663073473689476454	../lib/libmemcopy.a	c68417934abc3096
+215	284	1663073473757477564	../bin/test	f7da9cf2583a4f04
