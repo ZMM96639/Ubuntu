@@ -133,17 +133,25 @@ $$\left(\pmb H + \lambda \Delta \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\lef
 #### 1. Time Update("Predict")
 
 - **Project the state ahead**
+
 $$ \hat x_k^- = A\hat x_{k-1} + Bu_{k-1}$$
+
 - **Project the error covariance ahead**
+
 $$P_k^- = AP_{k-1}A^T + Q $$
 
 #### 2. Measurement Update("Correct")
 
 - **Compute the Kalman gain**
+
 $$K_k = P_k^-H^T(HP_k^-H^T + R)^{-1}$$
+
 - **Update estimate with measurement $z_k$**
+
 $$\hat x_k = \hat x_k^- + K_k({z_k - H\hat x_k^-})$$
+
 - **Update the error covariance**
+
 $$P_k = (I - K_kH)P_k^-$$
 
 #### 3. Kalman Filter Algorithm Reference Terms
