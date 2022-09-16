@@ -1,12 +1,5 @@
 # ninja log v5
-0	209	1658655468828937796	CMakeFiles/curve.dir/Examples/curve.cpp.o	c5c7ae7d86ca0082
-0	1014	1658655493994846187	CMakeFiles/curvefitting.dir/src/Costfunc.cpp.o	5c6f059334b510c0
-1015	1035	1658655494014847701	libcurvefitting.a	7c0e25b1e4d822a2
-1	984	1658656636388070190	CMakeFiles/curvefitting.dir/src/Costfunc.cpp.o	5c6f059334b510c0
-984	1001	1658656636404062379	libcurvefitting.a	7c0e25b1e4d822a2
-1	1237	1658656636639947162	CMakeFiles/curve.dir/Examples/curve.cpp.o	c5c7ae7d86ca0082
-1	1741	1658667112741358420	CMakeFiles/curve.dir/Examples/curve.cpp.o	c5c7ae7d86ca0082
-3	960	1658667192865133490	CMakeFiles/curvefitting.dir/src/Costfunc.cpp.o	2f36f8de3a7972c6
-960	979	1658667192885133442	libcurvefitting.a	7c0e25b1e4d822a2
-2	1880	1658667193781131308	CMakeFiles/curve.dir/Examples/curve.cpp.o	528308019722e463
-1880	2422	1658667194321130027	curve	cdbddfc900f12e12
+1	988	1663225459423008285	CMakeFiles/curvefitting.dir/src/Costfunc.cpp.o	2f36f8de3a7972c6
+990	1009	1663225459447008381	libcurvefitting.a	7c0e25b1e4d822a2
+0	1869	1663225460303011783	CMakeFiles/curve.dir/Examples/curve.cpp.o	528308019722e463
+1869	2231	1663225460667013231	curve	e6f78a6fb559e910

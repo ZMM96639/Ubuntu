@@ -61,7 +61,7 @@ rule CXX_STATIC_LIBRARY_LINKER__curvefitting
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -S/home/zmm/VScodeProjects/study/ceres/curveFit -B/home/zmm/VScodeProjects/study/ceres/curveFit/build
+  command = /usr/bin/cmake -S/home/zmm/gitRepositories/Ubuntu/ceres/curveFit -B/home/zmm/gitRepositories/Ubuntu/ceres/curveFit/build
   description = Re-running CMake...
   generator = 1
 

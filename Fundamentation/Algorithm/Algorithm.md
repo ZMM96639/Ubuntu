@@ -38,14 +38,18 @@ $$\pmb J(x)^T\pmb J(x)\Delta x = -\pmb J(x)^Tf(x).$$ $$\pmb H\Delta x = \pmb g.$
 
 1. 给定 ***initial value*** $x_0$, 以及初始优化半径 $\mu$ ;
 2. 对于第 $k$ 次 ***iteration***, 在 ***Gauss-Newton*** 基础上加上  ***Trust Region***, 求解：
-$$\min _{\Delta x_k}\frac{1}{2}\Vert f(x_k) + \pmb J(x_k)\Delta x\Vert^2 + \frac{\lambda}{2}\Vert\pmb D\Delta x\Vert^2, s.t. \Vert D\Delta x_k\Vert^2 \le \mu.$$
+$$
+\begin{align}
+\min _{\Delta x_k}\frac{1}{2}\Vert f(x_k) + \pmb J(x_k)\Delta x\Vert^2 + \frac{\lambda}{2}\Vert\pmb D\Delta x\Vert^2, \quad s.t. \quad \Vert D\Delta x_k\Vert^2 \le \mu.
+\end{align}
+$$
 3. 计算 $\rho$ :
 $$\rho = \frac {f(x + \Delta x) - f(x)}{\pmb J(x)\Delta x}.$$ 
 4.若 $\rho\gt\frac{3}{4}$, 则 $\mu = 2\mu$ ;若 $\rho\lt\frac{1}{4}$, 则 $\mu = 0.5\mu$ ;
 5. $x_{k+1} = x_k + \Delta x.$
 $$\left(\pmb H + \lambda \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\left(\pmb H + \lambda \pmb I\right)\Delta x = \pmb g.$$
 
-注：当 $\lambda$ 比较小时, `Levenberg-Marquadt` $\to$ `Gauss-Newton`; 当 $\lambda$ 比较大时, `Levenberg-Marquadt` $\to$ `最速下降法`.
+注：当 $\lambda$ 比较小时, **`Levenberg-Marquadt`** $\to$ **`Gauss-Newton`**; 当 $\lambda$ 比较大时, **`Levenberg-Marquadt`** $\to$ **`最速下降法`**.
 
 #### 2. Procedure
 
@@ -127,7 +131,68 @@ $$\left(\pmb H + \lambda \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\left(\pmb 
     7. InitializeOptimization
     8. Iteration
     ```
-## 
+## Ceres
+
+#### 1. Form
+$$
+\begin{align}
+\min_x \frac{1}{2}\sum_i\rho_i \left(\Vert f_i(x_{i_1},\dots,x_{i_k})\Vert^2\right), \quad s.t.\quad l_j\le x_j\le u_j.
+\end{align}
+$$
+
+注: **$[x_1, \dots, x_n]$** $\to$ **`ParameterBlock`**; **$\rho_i \left(\Vert f_i(x_{i_1},\dots,x_{i_k})\Vert^2\right)$** $\to$ **`ResidualBlock`**; **$f_i(\bullet)$** $\to$ **`CostFunction`**; **$\rho_i$** $\to$ **`LossFunction`**.
+
+#### 2. Procedure
+
+- **定义 ParameterBlock；** // 优化变量
+- **定义 ResidualBlock；** // 代价函数
+- **计算 Jacobian Matrix；**
+- **调用 Solve 进行优化。**
+
+#### 3. Implement
+
+- **Write a CostFunctor**
+    ```
+    struct CostFunctor{
+        template<typename T>
+        bool operator()(const T* const /* ParameterBlock */, T* residual) const {
+            residual[0] = /* expression */;
+            return true;
+        }
+    }
+    ```
+- **Set up the cost function**
+    ```
+    // 自动求导 模板参数: 误差类型, 输出维度, 输入维度
+    // LossFunction:核函数
+    // 优化变量
+    auto solver = new CostFunctor(/* data */);
+    CostFunction* cost_function = new AutoDiffCostFunction<CostFunctor, OutputDims, InputDims>(solver);
+    problem.AddResidualBlock(cost_function, nullptr, /* 优化变量 */)
+    ```
+- **Jacobian Matrix**
+    ```
+    // CostFunction or SizedCostFunction
+    class QuadraticCostFunction : public ceres::CostFunction<OutputDims, InputDims>{
+    public:
+        virtual ~QuadraticCostFunction = default;
+        virtual bool Evaluate(double const* const* parameters, double* residual, double** jacobian) const {
+            const double x = parameters[0][0];
+            residuals[0] = /* expression */;
+            if(jacobians != nullptr && jacobian[0] != nullptr){
+                jacobians[0][0] = /* data */;
+            }
+            return true;
+        }
+    }
+    ```
+
+- **Solver**
+    ```
+    1. Options: linear_solver_type // 增量方程的求解方式
+    2. Summary // 优化信息
+    3. ceres::Solve(options, &problem, &summary)
+    ```
 
 ## Kalman filtering
 #### 1. Time Update("Predict")

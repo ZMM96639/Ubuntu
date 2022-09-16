@@ -1,11 +1,11 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/zmm/VScodeProjects/study/ceres/curveFit/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zmm/gitRepositories/Ubuntu/ceres/curveFit/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/ninja cmTC_d5275 && [1/2] Building C object CMakeFiles/cmTC_d5275.dir/src.c.o
-[2/2] Linking C executable cmTC_d5275
-FAILED: cmTC_d5275 
-: && /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -rdynamic CMakeFiles/cmTC_d5275.dir/src.c.o  -o cmTC_d5275   && :
-/usr/bin/ld: CMakeFiles/cmTC_d5275.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/ninja cmTC_a173c && [1/2] Building C object CMakeFiles/cmTC_a173c.dir/src.c.o
+[2/2] Linking C executable cmTC_a173c
+FAILED: cmTC_a173c 
+: && /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -rdynamic CMakeFiles/cmTC_a173c.dir/src.c.o  -o cmTC_a173c   && :
+/usr/bin/ld: CMakeFiles/cmTC_a173c.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
@@ -34,12 +34,12 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/zmm/VScodeProjects/study/ceres/curveFit/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zmm/gitRepositories/Ubuntu/ceres/curveFit/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/ninja cmTC_eb05f && [1/2] Building C object CMakeFiles/cmTC_eb05f.dir/CheckFunctionExists.c.o
-[2/2] Linking C executable cmTC_eb05f
-FAILED: cmTC_eb05f 
-: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_eb05f.dir/CheckFunctionExists.c.o  -o cmTC_eb05f  -lpthreads && :
+Run Build Command(s):/usr/bin/ninja cmTC_d62df && [1/2] Building C object CMakeFiles/cmTC_d62df.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_d62df
+FAILED: cmTC_d62df 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_d62df.dir/CheckFunctionExists.c.o  -o cmTC_d62df  -lpthreads && :
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
 ninja: build stopped: subcommand failed.
