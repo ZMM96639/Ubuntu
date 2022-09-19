@@ -1,0 +1,3 @@
+/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/build/CMakeFiles/rebuild_cache.dir
+/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/build/CMakeFiles/edit_cache.dir
+/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/build/CMakeFiles/test.dir

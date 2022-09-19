@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/build",
+  "command": "/usr/bin/c++   -I../include  -g   -o CMakeFiles/test.dir/Examples/main.cpp.o -c /home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/Examples/main.cpp",
+  "file": "/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/test/Examples/main.cpp"
+}
+]

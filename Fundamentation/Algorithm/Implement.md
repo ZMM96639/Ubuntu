@@ -1,4 +1,5 @@
 ### Using Eigen
+
 ##### 1. Camera Imaging Model
 
 $$
@@ -37,7 +38,7 @@ $$
         CamMod(const Eigen::Matrix3d &K,
                const Eigen::Matrix3d &rotation,
                const Vector3d &translation,
-               const Eigen::Vector3d &wp_pt):m_K(K), m_rotation(rotation), m_translation(translation), m_wp_pt(wp_pt) {}
+               const Eigen::Vector3d &wp_pt):m_K{K}, m_rotation{rotation}, m_translation{translation}, m_wp_pt{wp_pt} {}
         ~CamMod() = default;
 
     private:
@@ -68,3 +69,33 @@ $$
         Eigen::Vector3d m_img_pt{Eigen::Vector2d::Zero()};
     };
     
+
+##### 2. Calculating $x^2$ using the optimization method
+    
+    template <class T>
+    class Mysquare {
+    public:
+        Solution() = default;
+        ~Solution() = default;
+
+    private:
+        Solution(const Solution &) = delete;
+        Solution &operator=(const Solution &) = delete;
+
+        T implement(const T &x) {
+            if(x == 0) {
+                return 0;
+            }
+
+            T x0 = x;
+            while(1) {
+                T xi = 0.5 * (x0 + x/x0);
+                if(fabs(x0-xi) < 1e-7) {
+                    break;
+                }
+                x0 = xi;
+            }
+            return x0;
+        }
+
+    };
