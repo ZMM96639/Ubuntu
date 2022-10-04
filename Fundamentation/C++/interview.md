@@ -18,7 +18,7 @@
 
 #### 堆和栈的区别
 * **空间分配机制不同 :** 栈是由`编译器`自动分配和释放；堆是程序员通过`new`和`delete`进行空间分配和释放的。
-* **缓存方式不同 :** 栈使用的是`一级缓存`,生命周期结束立即释放；堆使用`二级缓存`,速度会慢些。
+* **缓存方式不同 :** 栈使用的是`一级缓存`, 生命周期结束立即释放；堆使用`二级缓存`, 速度会慢些。
 
 * **数据结构不同 :** 栈即栈结构，先进后出；堆类似数组结构。
 * **地址生长方向不同 :** 堆是`向上增长`，低地址向高地址；栈是`向下增长`，高地址向低地址。
@@ -229,16 +229,34 @@
 * 基本语法
     ```
     [capture](parameters) specifiers exception attr -> return type { /* code; */}
+    
+    [capture]: 捕获列表(外部变量)，捕获类型分为值捕获、引用捕获和隐式捕获；
+    [parameters]: 参数列表；
+    specifiers exception attr: 附加说明符，一般为 mutable、noexcept等；
+    ->return type: lambda函数的返回类型，一般不需要；
+    {}: 函数主体。
     ```
+* 编译器对lambda的生成规则:
+    ```
+    捕获列表 = 类的 private成员；
+    形参列表 = 类成员函数 operator()的形参列表；
+    mutable = 类成员函数 operator()的常属性 const;
+    返回类型 = 类成员函数 operator()的返回类型；
+    函数体 = 类成员函数 operator()的函数体。
+
+    ```
+    
 
 #### vector底层实现机制
 `vector`底层是**动态数组**，主要通过`start`、`finish`和`end_of_storage`三个迭代器进行内存操作。
-> size(): finish - start;
-capacity(): end_of_storage - start;
+    
+    size(): finish - start;
+    capacity(): end_of_storage - start;
+    
 
 **vector内存增长机制 :** 当空间不够时，会自动申请1.5/2.0倍原空间大小的内存，再把原内容拷贝过来，然后才开始构造新元素并释放原空间。因此任何引起vector容器空间重新分配的操作都会使原迭代器失效。
 
-**vector中reserve()和resize()的区别 :** `reserve()`改变的是vector容器的`capacity`；`resize()`改变的是vector容器的`size`。
+**vector中reserve()和resize()的区别 :** `reserve()` 改变的是vector容器的`capacity`；`resize()` 改变的是vector容器的`size`。
 
 
 

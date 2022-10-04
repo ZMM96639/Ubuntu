@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/Sort/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/bubble.dir/src/bubble.cpp.o -c /home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/Sort/src/bubble.cpp",
+  "file": "/home/zmm/gitRepositories/Ubuntu/Fundamentation/Algorithm/Sort/src/bubble.cpp"
+}
+]

@@ -32,7 +32,7 @@ $$ f(x + \Delta x) \Rightarrow f(x) + \pmb J(x)\Delta x.$$ $$\Delta x^* = \argmi
 
 $$\pmb J(x)^T\pmb J(x)\Delta x = -\pmb J(x)^Tf(x).$$ $$\pmb H\Delta x = \pmb g.$$
 
-注：实际数据中 $\pmb {J^TJ}$ 是半正定的, $\pmb {J^TJ}$ 为 ***Singular matrix Or ill-condition***, 导致算法不收敛.
+注：实际数据中 $\pmb {J^TJ}$ 是半正定的, $\pmb {J^TJ}$ 为 ***Singular matrix or ill-condition***, 导致算法不收敛.
 
 ##### *Levenberg-Marquadt* :
 
@@ -83,7 +83,7 @@ $$\left(\pmb H + \lambda \pmb D^T\pmb D\right)\Delta x = \pmb g.$$ $$\left(\pmb 
 - **确定线性求解器类型** LinearSolver
     ```
     // PoseDim: 待优化变量; LandmarkDim: 误差维数
-    typedef g2o::BlockSolver<g2o::BlockSolverTraits<PoseDim, LandmarkDim>> Block;
+    using Block = g2o::BlockSolver<g2o::BlockSolverTraits<PoseDim, LandmarkDim>>;
     Block::LinearSolverType *linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>();
     ```
 - **确定块求解器类型** BlockSolver
@@ -164,7 +164,7 @@ $$
 - **Set up the cost function**
     ```
     // 自动求导 模板参数: 误差类型, 输出维度, 输入维度
-    // LossFunction:核函数
+    // LossFunction: 核函数
     // 优化变量
     auto solver = new CostFunctor(/* data */);
     CostFunction* cost_function = new AutoDiffCostFunction<CostFunctor, OutputDims, InputDims>(solver);
