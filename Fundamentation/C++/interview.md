@@ -249,17 +249,16 @@
 
 #### vector底层实现机制
 `vector`底层是**动态数组**，主要通过`start`、`finish`和`end_of_storage`三个迭代器进行内存操作。
-    
+
     size(): finish - start;
     capacity(): end_of_storage - start;
     
-
 **vector 内存增长机制 :** 当空间不够时，会自动申请1.5/2.0倍原空间大小的内存，再把原内容拷贝过来，然后才开始构造新元素并释放原空间。因此任何引起vector容器空间重新分配的操作都会使原迭代器失效。
 
 **vector 中 reserve()和resize()的区别 :** `reserve()` 改变的是vector容器的`capacity`；`resize()` 改变的是vector容器的`size`。
 
 **vector 中 push_back()机制 :** 首先检查是否还有备用空间，如果有就在备用空间上构造元素，并调整迭代器`finish`，使`vector`变大；否则扩充空间(重新配置、移动数据、释放原空间)。
-
+    
     void push_back(const T& x) {
         if (finish != end_of_storage) {     // 还有备用空间
             construct(finish, x);
@@ -268,10 +267,17 @@
             insert_aux(end(), x);
         }
     }
-
+    
 
 #### hash冲突解决方法
 * 开放定址法
 * 再哈希法
 * 链地址法
 * 建立公共溢出区
+
+#### GDB调试
+* **开发过程**
+如果程序的运行结果不符合预期，第一时间就是打开GDB进行调试，在对应的地方 **`设置断点`**，然后分析原因；
+
+* **线上服务**
+第一时间查看进程在不在，如果不在的话，是否生成了 **`coredump文件`**，如果有，则使用 gdb 调试 coredump 文件，否则通过 **`dmesg`** 来分析内核日志来查找原因。
