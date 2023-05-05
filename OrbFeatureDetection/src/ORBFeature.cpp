@@ -474,18 +474,22 @@ namespace ORB
             // Add border to coordinates and scale information
             // 获取剔除过程后保留下来的特征点数目
             const int nkps = keypoints.size();
+
             // 然后开始遍历这些特征点，恢复其在当前图层图像坐标系下的坐标
             for (int i = 0; i < nkps; i++)
             {
                 // 对每一个保留下来的特征点，恢复到相对于当前图层“边缘扩充图像下”的坐标系的坐标
                 keypoints[i].pt.x += minBorderX;
                 keypoints[i].pt.y += minBorderY;
+
                 // 记录特征点来源的图像金字塔图层
                 keypoints[i].octave = level;
+
                 // 记录计算方向的patch，缩放后对应的大小， 又被称作为特征点半径
                 keypoints[i].size = scaledPatchSize;
             }
         }
+
         for (int level = 0; level < nlevels; ++level)
             computeOrientation(mvImagePyramid[level], // 对应的图层的图像
                                allKeypoints[level],   // 这个图层中提取并保留下来的特征点容器
@@ -850,9 +854,8 @@ namespace ORB
     void ORBFeature::computeOrientation(const cv::Mat &image, std::vector<cv::KeyPoint> &keypoints, const std::vector<int> &umax)
     {
         // 遍历所有的特征点
-        for (std::vector<cv::KeyPoint>::iterator keypoint = keypoints.begin(),
-                                                 keypointEnd = keypoints.end();
-             keypoint != keypointEnd; ++keypoint)
+        for (std::vector<cv::KeyPoint>::iterator keypoint = keypoints.begin(), keypointEnd = keypoints.end();
+                                                            keypoint != keypointEnd; ++keypoint)
         {
             // 调用IC_Angle 函数计算这个特征点的方向
             keypoint->angle = IC_Angle(image,        // 特征点所在的图层的图像
@@ -873,20 +876,24 @@ namespace ORB
         // 这条v=0中心线的计算需要特殊对待
         // 后面是以中心行为对称轴，成对遍历行数，所以PATCH_SIZE必须是奇数
         for (int u = -HALF_PATCH_SIZE; u <= HALF_PATCH_SIZE; ++u)
+
             // 注意这里的center下标u可以是负的！中心水平线上的像素按x坐标（也就是u坐标）加权
             m_10 += u * center[u];
 
         // Go line by line in the circular patch
         // 这里的step1表示这个图像一行包含的字节总数。参考[https://blog.csdn.net/qianqing13579/article/details/45318279]
         int step = (int)image.step1();
+
         // 注意这里是以v=0中心线为对称轴，然后对称地每成对的两行之间进行遍历，这样处理加快了计算速度
         for (int v = 1; v <= HALF_PATCH_SIZE; ++v)
         {
             // Proceed over the two lines
             // 本来m_01应该是一列一列地计算的，但是由于对称以及坐标x,y正负的原因，可以一次计算两行
             int v_sum = 0;
+
             // 获取某行像素横坐标的最大范围，注意这里的图像块是圆形的！
             int d = u_max[v];
+
             // 在坐标范围内挨个像素遍历，实际是一次遍历2个
             //  假设每次处理的两个点坐标，中心线下方为(x,y),中心线上方为(x,-y)
             //  对于某次待处理的两个点：m_10 = Σ x*I(x,y) =  x*I(x,y) + x*I(x,-y) = x*(I(x,y) + I(x,-y))
@@ -897,11 +904,14 @@ namespace ORB
                 // val_plus：在中心线下方x=u时的的像素灰度值
                 // val_minus：在中心线上方x=u时的像素灰度值
                 int val_plus = center[u + v * step], val_minus = center[u - v * step];
+
                 // 在v（y轴）上，2行所有像素灰度值之差
                 v_sum += (val_plus - val_minus);
+
                 // u轴（也就是x轴）方向上用u坐标加权和（u坐标也有正负符号），相当于同时计算两行
                 m_10 += u * (val_plus + val_minus);
             }
+
             // 将这一行上的和按照y坐标加权
             m_01 += v * v_sum;
         }
@@ -928,20 +938,22 @@ namespace ORB
     {
         // 得到特征点的角度，用弧度制表示。其中kpt.angle是角度制，范围为[0,360)度
         float angle = (float)kpt.angle * M_PI / 180;
+
         // 计算这个角度的余弦值和正弦值
         float a = (float)cos(angle), b = (float)sin(angle);
 
         // 获得图像中心指针
         const uchar *center = &img.at<uchar>(cvRound(kpt.pt.y), cvRound(kpt.pt.x));
+
         // 获得图像的每行的字节数
         const int step = (int)img.step;
 
-// 原始的BRIEF描述子没有方向不变性，通过加入关键点的方向来计算描述子，称之为Steer BRIEF，具有较好旋转不变特性
-// 具体地，在计算的时候需要将这里选取的采样模板中点的x轴方向旋转到特征点的方向。
-// 获得采样点中某个idx所对应的点的灰度值,这里旋转前坐标为(x,y), 旋转后坐标(x',y')，他们的变换关系:
-//  x'= xcos(θ) - ysin(θ),  y'= xsin(θ) + ycos(θ)
-//  下面表示 y'* step + x'
-#define GET_VALUE(idx) center[cvRound(pattern[idx].x * b + pattern[idx].y * a) * step + cvRound(pattern[idx].x * a - pattern[idx].y * b)]
+        // 原始的BRIEF描述子没有方向不变性，通过加入关键点的方向来计算描述子，称之为Steer BRIEF，具有较好旋转不变特性
+        // 具体地，在计算的时候需要将这里选取的采样模板中点的x轴方向旋转到特征点的方向。
+        // 获得采样点中某个idx所对应的点的灰度值,这里旋转前坐标为(x,y), 旋转后坐标(x',y')，他们的变换关系:
+        //  x'= xcos(θ) - ysin(θ),  y'= xsin(θ) + ycos(θ)
+        //  下面表示 y'* step + x'
+        #define GET_VALUE(idx) center[cvRound(pattern[idx].x * b + pattern[idx].y * a) * step + cvRound(pattern[idx].x * a - pattern[idx].y * b)]
 
         // brief描述子由32*8位组成
         // 其中每一位是来自于两个像素点灰度的直接比较，所以每比较出8bit结果，需要16个随机点，这也就是为什么pattern需要+=16的原因
@@ -981,7 +993,7 @@ namespace ORB
             desc[i] = (uchar)val;
         }
 
-// 为了避免和程序中的其他部分冲突在，在使用完成之后就取消这个宏定义
-#undef GET_VALUE
+        // 为了避免和程序中的其他部分冲突在，在使用完成之后就取消这个宏定义
+        #undef GET_VALUE
     }
 }
