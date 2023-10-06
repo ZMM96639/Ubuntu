@@ -66,7 +66,7 @@ namespace BundleAdjustment
         }
 
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
-        
+
         optimizer.initializeOptimization();
         optimizer.optimize(10);
 
